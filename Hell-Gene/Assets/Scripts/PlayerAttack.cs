@@ -150,8 +150,8 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                enemiesToDamage[i].GetComponent<Enemy>().Knockback(transform.position, knockbackForce);
+                enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage);
+                enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, knockbackForce);
             }
             attackCooldown = startAttackCooldown;
             comboCountdown = comboCooldown;
@@ -161,14 +161,14 @@ public class PlayerAttack : MonoBehaviour
             
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage * 2);
-                enemiesToDamage[i].GetComponent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
+                enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage * 2);
+                enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
             }
             attackCooldown = startAttackCooldown * 4;
             combo = 0;
             comboCountdown = 0;
 
-            Vector3 enemyTarget = enemiesToDamage[0].GetComponent<Enemy>().transform.position;
+            Vector3 enemyTarget = enemiesToDamage[0].GetComponentInParent<Enemy>().transform.position;
             Vector3 lungeDir = (enemyTarget - transform.position).normalized;
             rb.AddForce(lungeDir * lungeForce);
 
