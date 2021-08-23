@@ -3182,7 +3182,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3445,6 +3445,7 @@ MonoBehaviour:
   rb: {fileID: 1710586700}
   isInvincible: 0
   invincibleCountdown: 0
+  isDashing: 0
   health: 50
   canMove: 0
 --- !u!212 &1710586702

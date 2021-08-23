@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isInvincible;
     public float invincibleCountdown;
 
+    public bool isDashing;
+    private float dashTimer;
+
     public int health = 50;
 
     public bool canMove = true;
@@ -50,6 +53,20 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
         }
 
+        if (!isDashing) {
+            dashTimer = 0.05f;
+        }
+
+        if (isDashing) {
+            isInvincible = true;
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0) {
+                isDashing = false;
+                isInvincible = false;
+                canMove = true;
+            }
+        }
+
     }
 
     private void FixedUpdate()
@@ -58,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
+
+        if (isDashing) {
+            Dash();
+        }
+
     }
 
     void Inputs() {
@@ -65,13 +87,18 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isDashing = true;
+        }
     }
 
     void Move() {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
@@ -101,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
- 
+    void Dash() {
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed * 10, moveDirection.y * moveSpeed * 10);
+    }
 
 }

@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     public bool isAttacking = false;
-
+    private float isAttackingCooldown;
     
     private float attackCooldown;
     public float startAttackCooldown;
@@ -56,6 +56,19 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         GetAttackDirection();
+
+        if (isAttacking) {
+            isAttackingCooldown -= Time.deltaTime;
+            if (isAttackingCooldown <= 0) {
+                isAttacking = false;
+            }
+        }
+
+        if (!isAttacking) {
+            isAttackingCooldown = comboCooldown;
+        }
+
+
 
         if (comboCountdown >= 0) {
             comboCountdown -= Time.deltaTime;
@@ -130,6 +143,7 @@ public class PlayerAttack : MonoBehaviour
     void MeleeAttack() {
         combo += 1;
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
+        isAttacking = true;
 
         // Regular combos
         if (combo < maxCombo)
