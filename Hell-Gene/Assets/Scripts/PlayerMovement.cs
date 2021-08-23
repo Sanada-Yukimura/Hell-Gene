@@ -100,17 +100,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.CompareTag("Enemycollider"))
         {
-            Vector3 enemy = collision.gameObject.GetComponent<Enemy>().transform.position;
+            Vector3 enemy = collision.gameObject.GetComponentInParent<Enemy>().transform.position;
             Vector3 knockback = (transform.position - enemy).normalized;
 
             if (!isInvincible) {
                 rb.AddForce(knockback * 30, ForceMode2D.Impulse);
 
-                collision.gameObject.GetComponent<Enemy>().hitStun = true;
+                collision.gameObject.GetComponentInParent<Enemy>().hitStun = true;
 
-                int enemyDamage = collision.gameObject.GetComponent<Enemy>().damage;
+                int enemyDamage = collision.gameObject.GetComponentInParent<Enemy>().damage;
                 TakeDamage(enemyDamage);
 
                 isInvincible = true;

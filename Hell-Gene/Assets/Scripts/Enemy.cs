@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     Rigidbody2D rb;
 
+    private int enemyType;
+    private bool initialAggroTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +33,23 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
 
         damage = 10;
+		
+        
+        // If enemy type is of the basic passive/aggressive on trigger type (1), don't trigger pathfinding instantly.
+        enemyType = 1;
+        if (enemyType == 1) {
+	        initialAggroTrigger = false;
+	        aipath.canSearch = false;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+	    if (initialAggroTrigger) {
+		    aipath.canSearch = true;
+	    }
 
         if (health <= 0) {
             Destroy(gameObject);
@@ -44,7 +60,7 @@ public class Enemy : MonoBehaviour
             hitStunTimer -= Time.deltaTime;
         }
 
-        if (!hitStun) {
+        if (!hitStun && initialAggroTrigger) {
             aipath.canSearch = true;
             hitStunTimer = 1.0f;
             rb.velocity = Vector3.zero;
@@ -67,4 +83,13 @@ public class Enemy : MonoBehaviour
 
         rb.AddForce(knockbackDir.normalized * force);
     }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+	    if (other.CompareTag("Player")) {
+		    Debug.Log("Triggered!");
+		    initialAggroTrigger = true;
+	    }
+    }
+    
+    
 }
