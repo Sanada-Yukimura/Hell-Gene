@@ -18,6 +18,13 @@ public class PlayerAttack : MonoBehaviour
     public int rangeType = 0;
 
     public int damage;
+    public int knockbackForce; // Needs to be a big number in the 100s at least
+    public int lungeForce; // Force to move forward on final hit
+
+    public int maxCombo;
+    private int combo = 0;
+    public float comboCooldown;
+    private float comboCountdown;
 
     Transform player;
 
@@ -29,7 +36,11 @@ public class PlayerAttack : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    public int bulletForce;
+    PlayerMovement playerMov;
+
+    Rigidbody2D rb;
+
+    public int bulletForce; // Speed of the bullet
 
     private Vector3 mouseDir;
 
@@ -37,12 +48,22 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
+        playerMov = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         GetAttackDirection();
+
+        if (comboCountdown >= 0) {
+            comboCountdown -= Time.deltaTime;
+        }
+
+        if (comboCountdown <= 0) {
+            combo = 0;
+        }
 
         // Melee attacks
         if (attackCooldown <= 0)
@@ -76,6 +97,10 @@ public class PlayerAttack : MonoBehaviour
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
                 damage = 10;
+                maxCombo = 3;
+                comboCooldown = 0.4f;
+                knockbackForce = 1000;
+                lungeForce = 500;
                 break;
         }
 
@@ -95,18 +120,49 @@ public class PlayerAttack : MonoBehaviour
         // because other parts still use it and I'm too afraid to delete it
         // so please leave it in.
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        Vector3 mouseDir = (mousePos - transform.position).normalized;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 mouseDir = mousePos.normalized;
+
 
         Vector3 attackPos = transform.position + mouseDir * 3;
     }
 
     void MeleeAttack() {
+        combo += 1;
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
-        for (int i = 0; i < enemiesToDamage.Length; i++) {
-            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+
+        // Regular combos
+        if (combo < maxCombo)
+        {
+            for (int i = 0; i < enemiesToDamage.Length; i++)
+            {
+                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                enemiesToDamage[i].GetComponent<Enemy>().Knockback(transform.position, knockbackForce);
+            }
+            attackCooldown = startAttackCooldown;
+            comboCountdown = comboCooldown;
+        
+        // Final combo
+        } else if (combo == maxCombo) {
+            
+            for (int i = 0; i < enemiesToDamage.Length; i++)
+            {
+                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage * 2);
+                enemiesToDamage[i].GetComponent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
+            }
+            attackCooldown = startAttackCooldown * 4;
+            combo = 0;
+            comboCountdown = 0;
+
+            Vector3 enemyTarget = enemiesToDamage[0].GetComponent<Enemy>().transform.position;
+            Vector3 lungeDir = (enemyTarget - transform.position).normalized;
+            rb.AddForce(lungeDir * lungeForce);
+
+            playerMov.isInvincible = true;
+            playerMov.invincibleCountdown = 0.2f;
         }
-        attackCooldown = startAttackCooldown;
+
+
     }
 
     void RangedAttack() {
