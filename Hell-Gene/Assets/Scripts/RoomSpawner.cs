@@ -14,30 +14,27 @@ public class RoomSpawner : MonoBehaviour
     public bool spawned = false;
     void Start() {
 	    templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-	    Invoke("SpawnRooms", 3f);
+	    Invoke("SpawnRooms", 0.1f);
     }
     
     void SpawnRooms() {
 	    if (spawned == false) {
 		    if (openDirection == 1) {
-			    rando = Random.Range(0, 1);
-			    Instantiate(templates.downRooms[rando], transform.position, Quaternion.identity);
-		    
+			    rando = Random.Range(0, templates.downRooms.Length);
+			    Instantiate(templates.downRooms[rando], transform.position, templates.downRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 2) {
-			    rando = Random.Range(0, 1);
-			    Instantiate(templates.rightRooms[rando], transform.position, Quaternion.identity);
-		    
+			    rando = Random.Range(0, templates.leftRooms.Length);
+                Instantiate(templates.leftRooms[rando], transform.position, templates.leftRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 3) {
-			    rando = Random.Range(0, 1);
-			    Instantiate(templates.upRooms[rando], transform.position, Quaternion.identity);
+			    rando = Random.Range(0, templates.upRooms.Length);
+			    Instantiate(templates.upRooms[rando], transform.position, templates.upRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 4) {
-			    rando = Random.Range(0, 1);
-			    Instantiate(templates.leftRooms[rando], transform.position, Quaternion.identity);
+			    rando = Random.Range(0, templates.rightRooms.Length);
+			    Instantiate(templates.rightRooms[rando], transform.position, templates.rightRooms[rando].transform.rotation);
 		    }
-
 		    spawned = true;
 	    }
 
