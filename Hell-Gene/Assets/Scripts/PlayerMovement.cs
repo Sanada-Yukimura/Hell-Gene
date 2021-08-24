@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerMovement : MonoBehaviour
 {
+    //facing (0=nothing,1=Up,2=Right,3=Left,4=Down)
+	public int facing = 0;
 
     public float moveSpeed;
     public Rigidbody2D rb;
-
+    public Animator animator;
+  
     public bool isInvincible;
     public float invincibleCountdown;
 
@@ -21,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    public Vector2 lookDir;
+    float angle;
+    public Vector2 mousePos;
+	public Camera cam;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +38,56 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
     }
 
+    private void checkFacing()
+	{
+
+		//Uses camera to create ingame pixel units for distance
+		mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+
+		animator.SetFloat("Speed", moveSpeed);	
+		animator.SetFloat("Facing", facing);		
+		
+		//Vector for mouse position - player position
+		lookDir = mousePos-rb.position;
+
+		//In reference t0 the mouse pos;
+
+		//Angle after math
+		angle = Mathf.Atan2(lookDir.y, lookDir.x);
+		//Conversion from radians to degrees with the fixing of the offset of 45
+		angle = angle * Mathf.Rad2Deg;
+		angle = angle-90f;
+		//Displaying to to two digits
+
+		if(angle>-225f && angle<-135f)
+		{
+		 facing = 4;	//Char is facing down		
+		}
+		else if(angle>-45f && angle<45f)
+		{
+		 facing = 1;	//Char is facing up		
+		}
+		else if((angle>45.01f && angle<90f) || (angle<-225f && angle>-270f))
+		{
+		 facing = 3;	//Char is facing left	
+		}
+		else 
+		{
+		 facing = 2;	//Char is facing right	
+		}		
+
+
+
+	}
+
+
+
     // Update is called once per frame
     void Update()
     {
         Inputs();
-
+        checkFacing();
         if (invincibleCountdown >= 0) {
             invincibleCountdown -= Time.deltaTime;
         }
@@ -85,7 +139,8 @@ public class PlayerMovement : MonoBehaviour
     void Inputs() {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
+		animator.SetFloat("Horizontal", moveX);
+		animator.SetFloat("Vertical", moveY);
         moveDirection = new Vector2(moveX, moveY).normalized;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
