@@ -119,7 +119,24 @@ public class PlayerMovement : MonoBehaviour
                 canMove = false;
             }
         }
+        if (collision.CompareTag("BossCollider"))
+        {
+            Vector3 enemy = collision.gameObject.GetComponentInParent<Boss>().transform.position;
+            Vector3 knockback = (transform.position - enemy).normalized;
 
+            if (!isInvincible)
+            {
+                rb.AddForce(knockback * 80, ForceMode2D.Impulse);
+
+                int enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
+                TakeDamage(enemyDamage);
+
+                isInvincible = true;
+                invincibleCountdown = 1.0f;
+
+                canMove = false;
+            }
+        }
     }
 
     private void TakeDamage(int damage)

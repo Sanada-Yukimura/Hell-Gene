@@ -26,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     public float comboCooldown;
     private float comboCountdown;
 
+    Vector3 enemyTarget;
+
     Transform player;
 
     public LayerMask whatIsEnemy;
@@ -81,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
         // Melee attacks
         if (attackCooldown <= 0)
         {
-            if (Input.GetMouseButtonDown(0)) // Left click
+            if (Input.GetMouseButtonDown(0) && combo < maxCombo) // Left click
             {
                 MeleeAttack();
             }
@@ -137,7 +139,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 mouseDir = mousePos.normalized;
 
 
-        Vector3 attackPos = transform.position + mouseDir * 3;
+        //Vector3 attackPos = transform.position + mouseDir * 3;
     }
 
     void MeleeAttack() {
@@ -150,25 +152,49 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage);
-                enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, knockbackForce);
+                if (enemiesToDamage[i].gameObject.CompareTag("Enemycollider"))
+                {
+                    enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage);
+                    enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, knockbackForce);
+                    Debug.Log("Attacking Enemy");
+                }
+                else if (enemiesToDamage[i].gameObject.CompareTag("BossCollider")) {
+                    enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage(damage);
+                    enemiesToDamage[i].GetComponentInParent<Boss>().Knockback(transform.position, knockbackForce);
+                    Debug.Log("Attacking Boss");
+                }
             }
             attackCooldown = startAttackCooldown;
             comboCountdown = comboCooldown;
         
         // Final combo
         } else if (combo == maxCombo) {
-            
+
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage * 2);
-                enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
+                if (enemiesToDamage[i].gameObject.CompareTag("Enemycollider"))
+                {
+                    enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage * 2);
+                    enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
+                    Debug.Log("Attacking Enemy");
+                }
+                else if (enemiesToDamage[i].gameObject.CompareTag("BossCollider")) {
+                    enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage(damage * 2);
+                    enemiesToDamage[i].GetComponentInParent<Boss>().Knockback(transform.position, (knockbackForce * 3));
+                    Debug.Log("Attacking Boss");
+                }
             }
             attackCooldown = startAttackCooldown * 4;
             combo = 0;
             comboCountdown = 0;
 
-            Vector3 enemyTarget = enemiesToDamage[0].GetComponentInParent<Enemy>().transform.position;
+            if (enemiesToDamage[0].gameObject.CompareTag("Enemy"))
+            {
+                Vector3 enemyTarget = enemiesToDamage[0].GetComponentInParent<Enemy>().transform.position;
+            }
+            else if (enemiesToDamage[0].gameObject.CompareTag("Boss")) {
+                Vector3 enemyTarget = enemiesToDamage[0].GetComponentInParent<Boss>().transform.position;
+            }
             Vector3 lungeDir = (enemyTarget - transform.position).normalized;
             rb.AddForce(lungeDir * lungeForce);
 
