@@ -456,6 +456,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &821939744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821939745}
+  - component: {fileID: 821939746}
+  m_Layer: 0
+  m_Name: Room Templates
+  m_TagString: Rooms
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &821939745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821939744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.374625, y: -2.9700067, z: -212.55975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &821939746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821939744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05b2687ba04f5442bedd1e25ba02bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downRooms:
+  - {fileID: 9051820324401830959, guid: da5e065bb344a96499c06f99bbe4fecd, type: 3}
+  - {fileID: 6516175206442582233, guid: 6369b3af4311ca448a87086239b8c68a, type: 3}
+  - {fileID: 3524469542840642927, guid: 1781e519d8f4978498e36d8209d41a6f, type: 3}
+  - {fileID: 793662497253089144, guid: 879b5b789874cad4e83eafd7c5793f66, type: 3}
+  - {fileID: 6269952506514313735, guid: 63414349b086d264f95eef95d1bff0ba, type: 3}
+  - {fileID: 1315374690361053282, guid: 4cbc77683ee87a04db544901696a4e0c, type: 3}
+  - {fileID: 1233448190613020066, guid: 49508f1363cf4fe459f2b22e35287f10, type: 3}
+  - {fileID: 8447794682725963618, guid: d845eab3a0325f24db7b4595a7f466db, type: 3}
+  upRooms:
+  - {fileID: 6841382817714301849, guid: 4cfc6b1b40b54ec45b00e258cfb899a5, type: 3}
+  - {fileID: 3465958438194944478, guid: fbf593018c82a6340ad9fabda4fab147, type: 3}
+  - {fileID: 708153130777721812, guid: da75c6054aeba8947a8d63554a45ca19, type: 3}
+  - {fileID: 1315374690361053282, guid: 4cbc77683ee87a04db544901696a4e0c, type: 3}
+  - {fileID: 6269952506514313735, guid: 63414349b086d264f95eef95d1bff0ba, type: 3}
+  - {fileID: 1233448190613020066, guid: 49508f1363cf4fe459f2b22e35287f10, type: 3}
+  - {fileID: 7330510940235418300, guid: c2aa1ec5cb01cac4a8cd35ba7c04f1ca, type: 3}
+  - {fileID: 8447794682725963618, guid: d845eab3a0325f24db7b4595a7f466db, type: 3}
+  leftRooms:
+  - {fileID: 4256298713143234129, guid: e212d4f30f1934b40899084d165f5429, type: 3}
+  - {fileID: 127008114422252393, guid: 10d09bdf30f2c7441ac5e1cd7721e025, type: 3}
+  - {fileID: 6516175206442582233, guid: 6369b3af4311ca448a87086239b8c68a, type: 3}
+  - {fileID: 3524469542840642927, guid: 1781e519d8f4978498e36d8209d41a6f, type: 3}
+  - {fileID: 1233448190613020066, guid: 49508f1363cf4fe459f2b22e35287f10, type: 3}
+  - {fileID: 6841382817714301849, guid: 4cfc6b1b40b54ec45b00e258cfb899a5, type: 3}
+  - {fileID: 1315374690361053282, guid: 4cbc77683ee87a04db544901696a4e0c, type: 3}
+  - {fileID: 3465958438194944478, guid: fbf593018c82a6340ad9fabda4fab147, type: 3}
+  rightRooms:
+  - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
+  - {fileID: 127008114422252393, guid: 10d09bdf30f2c7441ac5e1cd7721e025, type: 3}
+  - {fileID: 3524469542840642927, guid: 1781e519d8f4978498e36d8209d41a6f, type: 3}
+  - {fileID: 793662497253089144, guid: 879b5b789874cad4e83eafd7c5793f66, type: 3}
+  - {fileID: 1315374690361053282, guid: 4cbc77683ee87a04db544901696a4e0c, type: 3}
+  - {fileID: 8447794682725963618, guid: d845eab3a0325f24db7b4595a7f466db, type: 3}
+  - {fileID: 3465958438194944478, guid: fbf593018c82a6340ad9fabda4fab147, type: 3}
+  - {fileID: 708153130777721812, guid: da75c6054aeba8947a8d63554a45ca19, type: 3}
 --- !u!1 &1589764489
 GameObject:
   m_ObjectHideFlags: 0
