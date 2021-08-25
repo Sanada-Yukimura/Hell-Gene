@@ -6,6 +6,11 @@ public class EnemyPivot : MonoBehaviour
 {
     public GameObject player;
 
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void FixedUpdate()
     {
         Vector3 difference = player.transform.position - transform.position;
