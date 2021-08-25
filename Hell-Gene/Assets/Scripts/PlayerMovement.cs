@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (!isDashing) {
-            dashTimer = 0.05f;
+            dashTimer = 0.1f;
         }
 
         if (isDashing) {
@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             dashTimer -= Time.deltaTime;
             if (dashTimer <= 0) {
                 isDashing = false;
+                invincibleCountdown = -0.1f;
                 isInvincible = false;
                 canMove = true;
             }
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (moveX != 0 || moveY !=0))
         {
             isDashing = true;
         }
