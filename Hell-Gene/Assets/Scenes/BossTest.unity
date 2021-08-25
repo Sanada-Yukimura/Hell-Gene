@@ -2831,6 +2831,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1188343602}
+    - target: {fileID: 7747925409631094854, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7acf8f1a4867d3c4a998cedfa0ba6df1, type: 3}
     - target: {fileID: 7747925409631094855, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -56,26 +56,47 @@ public class PlayerMovement : MonoBehaviour
 		//Angle after math
 		angle = Mathf.Atan2(lookDir.y, lookDir.x);
 		//Conversion from radians to degrees with the fixing of the offset of 45
-		angle = angle * Mathf.Rad2Deg;
-		angle = angle-90f;
+		angle *= Mathf.Rad2Deg;
+		if (angle < 0) {
+			angle += 360;
+		}
+
+		if (angle > 45f && angle <= 135f) {
+			facing = 1;
+		}
+
+		else if (angle > 135f && angle <= 225f) {
+			facing = 3;
+		}
+
+		else if (angle > 225f && angle <= 315f) {
+			facing = 4;
+		}
+		else {
+			facing = 2;
+		}
+		
+		
+		
+		
 		//Displaying to to two digits
 
-		if(angle>-225f && angle<-135f)
-		{
-		 facing = 4;	//Char is facing down		
-		}
-		else if(angle>-45f && angle<45f)
-		{
-		 facing = 1;	//Char is facing up		
-		}
-		else if((angle>45.01f && angle<90f) || (angle<-225f && angle>-270f))
-		{
-		 facing = 3;	//Char is facing left	
-		}
-		else 
-		{
-		 facing = 2;	//Char is facing right	
-		}		
+//		if(angle>-225f && angle<-135f)
+//		{
+//		 facing = 4;	//Char is facing down		
+//		}
+//		else if(angle>-45f && angle<45f)
+//		{
+//		 facing = 1;	//Char is facing up		
+//		}
+//		else if((angle>45.01f && angle<90f) || (angle<-225f && angle>-270f))
+//		{
+//		 facing = 3;	//Char is facing left	
+//		}
+//		else 
+//		{
+//		 facing = 2;	//Char is facing right	
+//		}		
 
 
 
