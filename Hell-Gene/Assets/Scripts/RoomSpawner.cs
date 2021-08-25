@@ -29,8 +29,8 @@ public class RoomSpawner : MonoBehaviour
                 Instantiate(templates.leftRooms[rando], transform.position, templates.leftRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 3) {
-			    rando = Random.Range(0, templates.upRooms.Length);
-			    Instantiate(templates.upRooms[rando], transform.position, templates.upRooms[rando].transform.rotation);
+			    rando = Random.Range(0, templates.topRooms.Length);
+			    Instantiate(templates.topRooms[rando], transform.position, templates.topRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 4) {
 			    rando = Random.Range(0, templates.rightRooms.Length);
