@@ -7,6 +7,9 @@ public class Destroyer : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D collider)
     {
-        //Destroy(collider.gameObject);
+        if (collider.gameObject.tag == "Module")
+        {
+            Destroy(collider.gameObject);
+        }
     }
 }

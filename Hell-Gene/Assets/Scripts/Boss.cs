@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
     public int maxHealth;
     public int health;
     public int damage;
+    public int knockback;
 
     int phase = 0;
 
@@ -16,9 +17,17 @@ public class Boss : MonoBehaviour
     public float attackRange;
     public Transform pivot;
     public Transform firePoint;
+    public LayerMask whatIsPlayer;
+
+    public float projectileRange;
+    public float projectileSafety;
+    public float projectileBuffer;
+    public int bulletForce;
 
     public Transform player;
     public Pathfinding.AIPath aipath;
+
+    public GameObject bossBullet;
 
     Rigidbody2D rb;
 
@@ -26,7 +35,7 @@ public class Boss : MonoBehaviour
     public bool isAttacking;
 
     public float maxChargeTime = 0.8f; // Telegraph boss attack
-    public float maxAttackTime = 0.3f; // Attack animation
+    public float maxAttackTime = 0.2f; // Attack animation
     public float maxCooldownTime = 1.0f; // Pause
     public float maxAttackBuffer = 10f; // Buffer before boss is able to attack again
     private float chargeTime;
@@ -39,6 +48,8 @@ public class Boss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         phase = 0;
+
+        aipath.maxSpeed = 1;
 
         chargeTime = maxChargeTime;
         attackTime = maxAttackTime;
@@ -94,7 +105,17 @@ public class Boss : MonoBehaviour
             // Attack
             if (chargeTime <= 0 && attackTime >= 0) {
                 attackTime -= Time.deltaTime;
-                Debug.Log("Attacking");
+                Collider2D[] playerDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
+
+                Debug.Log(playerDamage.Length);
+                for (int i = 0; i < playerDamage.Length; i++) {
+                    if (playerDamage[i].gameObject.CompareTag("Player")) {
+                        playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 200);
+                        playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                    }
+                }
+
+                //Debug.Log("Attacking");
             }
 
             // Cooldown
@@ -116,21 +137,63 @@ public class Boss : MonoBehaviour
 
         }
 
+        if (projectileBuffer >= 0) {
+            projectileBuffer -= Time.deltaTime;
+        }
+
+        // Projectile detection
+        if (phase == 1) {
+            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && projectileBuffer <= 0){
+                // Shoot projectile
+                Shoot();
+                projectileBuffer = 10f;
+                Debug.Log("Is Shooting");
+            }
+        }
+
+        if (phase == 2) {
+            aipath.maxSpeed = 3;
+
+            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && Vector2.Distance(player.transform.position, transform.position) >= projectileSafety && projectileBuffer <= 0)
+            {
+                // Shoot projectile 
+            }
+        }
 
 
     }
 
     public void LookAtPlayer() {
 
+        // Flip sprite
         if (transform.position.y > player.position.y && isFlipped && !isAttacking)
         {
-            pivot.Rotate(0f, 0f, 180f);
             isFlipped = false;
         }
-        else if (transform.position.y < player.position.y && !isFlipped && !isAttacking) {
-            pivot.Rotate(0f, 0f, 180f);
+        else if (transform.position.y < player.position.y && !isFlipped && !isAttacking)
+        {
             isFlipped = true;
         }
+
+        // Attack tracking
+        if (!isAttacking)
+        {
+            Vector3 difference = player.transform.position - transform.position;
+
+            difference.Normalize();
+
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+            pivot.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+        }
+
+    }
+
+    // Shoot projectile
+    void Shoot() {
+        GameObject bullet = Instantiate(bossBullet, firePoint.position, firePoint.rotation);
+        Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
+        bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
     public void TakeDamage(int damage)
@@ -154,6 +217,12 @@ public class Boss : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, projectileRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, projectileSafety);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -162,7 +231,7 @@ public class Boss : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                if (!isAttacking && attackBuffer <= 0)
+                if (!isAttacking && attackBuffer <= 0 && !other.gameObject.GetComponent<PlayerMovement>().isDashing)
                 {
                     isAttacking = true;
                 }
