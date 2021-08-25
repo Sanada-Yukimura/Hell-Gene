@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     public float attackTriggerRange; // Range of when enemy decides to attack.
     public float projectileTriggerRange; // Range of when enemy decides to shoot projectile
     public float detectionRange; // Range of when enemy decides to shoot projectile
+    
 
     public bool isMelee; //categorizes enemies for melee and ranged
     private bool isFleeing; //fleeing boolean
