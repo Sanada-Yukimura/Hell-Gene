@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     public float attackTriggerRange; // Range of when enemy decides to attack.
     public float projectileTriggerRange; // Range of when enemy decides to shoot projectile
+    public float detectionRange; // Range of when enemy decides to shoot projectile
 
     public bool isMelee; //categorizes enemies for melee and ranged
     private bool isFleeing; //fleeing boolean
@@ -100,6 +101,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange) //sets destination to player location if within detection range
+        {
+            initialAggroTrigger = true;
+            aipath.destination = player.transform.position;
+        }
 
         // Trigger attack
         if (Vector2.Distance(player.transform.position, transform.position) <= attackTriggerRange) {
@@ -116,12 +122,6 @@ public class Enemy : MonoBehaviour
             }
 
         }
-        else if(isFleeing) //disable fleeing if player is outside flee range
-        {
-            isFleeing = false;
-            aipath.canSearch = true;
-            aipath.canMove = true;
-        }
 
         if (Vector2.Distance(player.transform.position, transform.position) <= projectileTriggerRange)
         {
@@ -129,8 +129,15 @@ public class Enemy : MonoBehaviour
             if (!isMelee)
             {
                 aipath.canSearch = false;
+                aipath.canMove = false;
                 Fire(1);
             }
+        }
+        else //disable fleeing if player is outside range
+        {
+            isFleeing = false;
+            aipath.canSearch = true;
+            aipath.canMove = true;
         }
     }
 
@@ -174,5 +181,8 @@ public class Enemy : MonoBehaviour
 
         Gizmos.color = Color.yellow; // Display projectile trigger range
         Gizmos.DrawWireSphere(transform.position, projectileTriggerRange);
+
+        Gizmos.color = Color.green; // Display detection range
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

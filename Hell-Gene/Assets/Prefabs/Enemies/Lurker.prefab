@@ -141,6 +141,7 @@ MonoBehaviour:
   attackRange: 0.8
   attackTriggerRange: 1
   projectileTriggerRange: 0
+  detectionRange: 8
   isMelee: 1
 --- !u!50 &498066460192946566
 Rigidbody2D:
