@@ -15,7 +15,7 @@ public class RoomSpawner : MonoBehaviour
 
     void Start() {
 	    templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-	    Invoke("SpawnRooms", 0.1f);
+	    Invoke("SpawnRooms", 0.5f);
     }
     
     void SpawnRooms() {
@@ -47,7 +47,6 @@ public class RoomSpawner : MonoBehaviour
             {
 	            Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
 	            Destroy(gameObject);
-
             }
             spawned = true;
 	    }
