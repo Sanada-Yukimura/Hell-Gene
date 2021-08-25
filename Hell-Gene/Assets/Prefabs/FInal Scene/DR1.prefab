@@ -5026,7 +5026,7 @@ GameObject:
   - component: {fileID: 2425609735980351335}
   m_Layer: 0
   m_Name: DR1
-  m_TagString: Untagged
+  m_TagString: Module
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

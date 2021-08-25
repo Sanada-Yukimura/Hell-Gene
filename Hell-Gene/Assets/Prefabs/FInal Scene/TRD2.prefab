@@ -4786,7 +4786,7 @@ GameObject:
   - component: {fileID: 1220282785455725091}
   m_Layer: 0
   m_Name: TRD2
-  m_TagString: Untagged
+  m_TagString: Module
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

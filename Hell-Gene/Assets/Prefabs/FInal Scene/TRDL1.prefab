@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9180801953143865484}
-  - component: {fileID: 1532263151960770837}
   - component: {fileID: 5966860395636391711}
   - component: {fileID: 757216517765799501}
   - component: {fileID: 1515686266290289008}
+  - component: {fileID: 1694309410756015562}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Spawnpoint
@@ -34,20 +34,6 @@ Transform:
   m_Father: {fileID: 5294136894716169894}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1532263151960770837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2537363938851288391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8b2e71e7922f24b9902bd5e4433929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openDirection: 0
-  spawned: 0
 --- !u!61 &5966860395636391711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -107,6 +93,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b17aee78b66d64ab5b5ecf898c88ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1694309410756015562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537363938851288391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8b2e71e7922f24b9902bd5e4433929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDirection: 0
+  spawned: 1
 --- !u!1 &3919536794932742487
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: -7815132003759250277}
   m_Layer: 0
   m_Name: TRDL1
-  m_TagString: Untagged
+  m_TagString: Module
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5126,7 +5126,7 @@ GameObject:
   - component: {fileID: -2477060377507648835}
   m_Layer: 0
   m_Name: DL1
-  m_TagString: Untagged
+  m_TagString: Module
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
