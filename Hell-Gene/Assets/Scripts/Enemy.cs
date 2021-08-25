@@ -21,8 +21,16 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     Rigidbody2D rb;
 
+    public Transform player;
+
     private int enemyType;
     private bool initialAggroTrigger;
+
+    public Transform attackPos; // Position of hitbox
+    public float attackRange; // Range of the hitbox
+
+    public float attackTriggerRange; // Range of when enemy decides to attack.
+    public float projectileTriggerRange; // Range of when enemy decides to shoot projectile
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +77,17 @@ public class Enemy : MonoBehaviour
         if (hitStunTimer <= 0) {
             hitStun = false;
         }
+
+
+        // Trigger attack
+        if (Vector2.Distance(player.transform.position, transform.position) <= attackTriggerRange) { 
+            // Do attack logic here
+        }
+
+        if (Vector2.Distance(player.transform.position, transform.position) <= projectileTriggerRange) { 
+            // Do projectile logic here
+        }
+
     }
 
     public void TakeDamage(int damage) {
@@ -90,6 +109,16 @@ public class Enemy : MonoBehaviour
 		    initialAggroTrigger = true;
 	    }
     }
-    
-    
+
+    private void OnDrawGizmos() // Display hitboxes and ranges
+    {
+        Gizmos.color = Color.red; // Display hitbox
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+
+        Gizmos.color = Color.blue; // Display attack trigger range
+        Gizmos.DrawWireSphere(transform.position, attackTriggerRange);
+
+        Gizmos.color = Color.yellow; // Display projectile trigger range
+        Gizmos.DrawWireSphere(transform.position, projectileTriggerRange);
+    }
 }

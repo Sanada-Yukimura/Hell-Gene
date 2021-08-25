@@ -339,6 +339,8 @@ MonoBehaviour:
   attackRange: 1.65
   pivot: {fileID: 1783078624}
   firePoint: {fileID: 483606671}
+  projectileRange: 5
+  projectileSafety: 3
   player: {fileID: 924264335}
   aipath: {fileID: 1041351642}
   isFlipped: 0

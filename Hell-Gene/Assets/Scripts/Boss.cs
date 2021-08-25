@@ -17,6 +17,9 @@ public class Boss : MonoBehaviour
     public Transform pivot;
     public Transform firePoint;
 
+    public float projectileRange;
+    public float projectileSafety;
+
     public Transform player;
     public Pathfinding.AIPath aipath;
 
@@ -154,6 +157,12 @@ public class Boss : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, projectileRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, projectileSafety);
     }
 
     private void OnTriggerStay2D(Collider2D other)
