@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spawnpoint
+  - Rooms
+  - Enemy
+  - Enemycollider
+  - Boss
+  - BossCollider
   layers:
   - Default
   - TransparentFX
@@ -12,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
+  - Enemy
+  - Ground
   - 
   - 
   - 
