@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDirection: 3
+  spawned: 0
 --- !u!61 &3524469542488062099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -778,6 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3524469542840642925}
   - component: {fileID: 3524469542840642926}
+  - component: {fileID: 3019156945108293266}
   m_Layer: 0
   m_Name: DLR
   m_TagString: Untagged
@@ -814,6 +816,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &3019156945108293266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524469542840642927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b72ac634b2ab5847b13624b28c882a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3524469542941863778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3151,6 +3165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDirection: 4
+  spawned: 0
 --- !u!61 &3524469543674159948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3277,6 +3292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDirection: 2
+  spawned: 0
 --- !u!61 &3524469544122622529
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -358,3 +358,4 @@ MonoBehaviour:
   - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
   - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
   - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
+  closedRoom: {fileID: 7502048121693200201, guid: 9a975e3d1bfae584b8fbca81078295cd, type: 3}

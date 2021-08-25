@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 127008114422252407}
   - component: {fileID: 127008114422252392}
+  - component: {fileID: 7745479586117928203}
   m_Layer: 0
   m_Name: LR
   m_TagString: Untagged
@@ -78,6 +79,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &7745479586117928203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127008114422252393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b72ac634b2ab5847b13624b28c882a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &127008114752811052
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDirection: 2
+  spawned: 0
 --- !u!61 &127008114752811049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -217,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDirection: 4
+  spawned: 0
 --- !u!61 &127008115526415246
 BoxCollider2D:
   m_ObjectHideFlags: 0
