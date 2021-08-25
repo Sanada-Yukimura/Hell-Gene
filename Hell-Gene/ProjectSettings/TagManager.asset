@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Spawnpoint
   - Rooms
-=======
   - Enemy
   - Enemycollider
   - Boss
   - BossCollider
->>>>>>> playermovement
   layers:
   - Default
   - TransparentFX
