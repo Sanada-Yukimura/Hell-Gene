@@ -206,6 +206,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &883970398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8871516157850068359, guid: 4cbc77683ee87a04db544901696a4e0c, type: 3}
+  m_PrefabInstance: {fileID: 906993319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &883970399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883970398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8b2e71e7922f24b9902bd5e4433929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDirection: 0
+  spawned: 0
 --- !u!1001 &906993319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359,3 +378,4 @@ MonoBehaviour:
   - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
   - {fileID: 9023106332284022224, guid: 7e93f23219b90c8468267a9bcd38feff, type: 3}
   closedRoom: {fileID: 7502048121693200201, guid: 9a975e3d1bfae584b8fbca81078295cd, type: 3}
+  rooms: []
