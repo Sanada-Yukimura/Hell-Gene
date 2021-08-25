@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 		if (angle < 0) {
 			angle += 360;
 		}
+		Debug.Log(angle);
 
 		if (angle > 45f && angle <= 135f) {
 			facing = 1;
