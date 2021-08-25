@@ -11,6 +11,9 @@ TagManager:
   - Boss
   - BossCollider
   - Module
+  - EnemySpawn
+  - Enemies
+  - ChaosHandler
   layers:
   - Default
   - TransparentFX
