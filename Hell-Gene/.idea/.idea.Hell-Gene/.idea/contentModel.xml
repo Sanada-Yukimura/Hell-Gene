@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\benat\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -10,25 +10,17 @@
         <e p="Scripts" t="Include">
           <e p="AddRoom.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
-          <e p="BossBullet.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
-          <e p="CameraFollow.cs" t="Include" />
-          <e p="ChaosCardSelect.cs" t="Include" />
-          <e p="ChaosHandler.cs" t="Include" />
           <e p="Cursor.cs" t="Include" />
           <e p="Destroyer.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyDetection.cs" t="Include" />
-          <e p="EnemyPivot.cs" t="Include" />
-          <e p="EnemySpawner.cs" t="Include" />
-          <e p="EnemyTemplates.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerUI.cs" t="Include" />
           <e p="RoomSpawner.cs" t="Include" />
           <e p="RoomTemplates.cs" t="Include" />
-          <e p="StairChecker.cs" t="Include" />
         </e>
         <e p="Sprites" t="Include">
           <e p="AstarPathfindingProject" t="Include">
