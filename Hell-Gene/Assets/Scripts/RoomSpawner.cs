@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-
-    /* Code taken from Blackthornpod's Random Dungeon Generation Tutorial Series */
-
     public int openDirection;
     // 1 - needs bottom door
     // 2 - needs right door

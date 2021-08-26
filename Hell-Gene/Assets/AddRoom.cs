@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AddRoom : MonoBehaviour
 {
-    /* Code taken from Blackthornpod's Random Dungeon Generation Tutorial Series */
-
     private RoomTemplates templates;
 
     // Start is called before the first frame update
