@@ -20,12 +20,12 @@ public class ChaosCardSelect : MonoBehaviour {
 
     void OnClicked() {
 	    if (card.name == "RetainChaos") {
-		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 1));
+		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 0));
 		    Debug.Log("Retain Chaos");
 	    }
 
 	    else if (card.name == "RaiseChaos") {
-		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 1)+1);
+		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 0)+1);
 		    Debug.Log("Raise Chaos");
 	    }
     }
