@@ -140,9 +140,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int damage)
+    public void Knockback(Vector3 position, int force)
     {
-        health -= damage;
+        Vector3 knockbackDir = (transform.position - position).normalized;
+
+        rb.AddForce(knockbackDir * force);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            health -= damage;
+            isInvincible = true;
+            invincibleCountdown = 1.0f;
+        }
 
     }
 

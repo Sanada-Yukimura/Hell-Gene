@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
+
+    /* Code taken from Blackthornpod's Random Dungeon Generation Tutorial Series */
+
     public int openDirection;
     // 1 - needs bottom door
     // 2 - needs right door
@@ -13,9 +16,12 @@ public class RoomSpawner : MonoBehaviour
     private int rando;
     public bool spawned = false;
 
+    public float waitTime = 5f;
+
     void Start() {
+        Destroy(gameObject, waitTime); //destroys object after time period
 	    templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-	    Invoke("SpawnRooms", 0.1f);
+	    Invoke("SpawnRooms", 0.5f);
     }
     
     void SpawnRooms() {
@@ -29,8 +35,8 @@ public class RoomSpawner : MonoBehaviour
                 Instantiate(templates.leftRooms[rando], transform.position, templates.leftRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 3) {
-			    rando = Random.Range(0, templates.upRooms.Length);
-			    Instantiate(templates.upRooms[rando], transform.position, templates.upRooms[rando].transform.rotation);
+			    rando = Random.Range(0, templates.topRooms.Length);
+			    Instantiate(templates.topRooms[rando], transform.position, templates.topRooms[rando].transform.rotation);
 		    }
 		    else if (openDirection == 4) {
 			    rando = Random.Range(0, templates.rightRooms.Length);
@@ -47,7 +53,6 @@ public class RoomSpawner : MonoBehaviour
             {
 	            Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
 	            Destroy(gameObject);
-
             }
             spawned = true;
 	    }

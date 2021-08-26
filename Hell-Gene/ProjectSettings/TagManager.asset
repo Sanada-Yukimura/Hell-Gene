@@ -10,6 +10,12 @@ TagManager:
   - Enemycollider
   - Boss
   - BossCollider
+  - Module
+  - EnemySpawn
+  - Enemies
+  - ChaosHandler
+  - CameraBoundary
+  - StairSpawn
   layers:
   - Default
   - TransparentFX
