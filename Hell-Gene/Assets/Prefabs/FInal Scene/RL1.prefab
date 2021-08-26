@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e960ffa89a8afc4eb19e327a3249910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 0}
+  virtualCam: {fileID: 8250077307151106580}
   player: {fileID: 0}
 --- !u!1 &1336392364308057742
 GameObject:
