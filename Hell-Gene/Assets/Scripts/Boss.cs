@@ -46,6 +46,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         phase = 0;
 
