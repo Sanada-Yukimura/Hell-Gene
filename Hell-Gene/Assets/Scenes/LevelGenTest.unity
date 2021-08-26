@@ -656,6 +656,9 @@ MonoBehaviour:
   - {fileID: 1351236603150588190, guid: 3c5bdf6f71d7ba540bb59af3316a7f09, type: 3}
   closedRoom: {fileID: 5298655471655897277, guid: d9868843635ce6141af317e21bf6b3fd, type: 3}
   rooms: []
+  waitTime: 4
+  staircase: {fileID: 3375756681129136028, guid: 6b18a388492490b438922696c0cae805, type: 3}
+  staircheck: {fileID: 0}
 --- !u!1001 &2025551528
 PrefabInstance:
   m_ObjectHideFlags: 0

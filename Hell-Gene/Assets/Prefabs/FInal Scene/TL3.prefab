@@ -46,6 +46,50 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 4
+  waitTime: 3
+--- !u!1 &1056524957863089839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7547151206657376137}
+  - component: {fileID: 7797220458690651247}
+  m_Layer: 0
+  m_Name: StairSpawn
+  m_TagString: StairSpawn
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7547151206657376137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056524957863089839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: -1, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7198128659149776121}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7797220458690651247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056524957863089839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe4bac2eaf97684b8c4478706730a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1073495363032159018
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +136,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 2
+  waitTime: 3
 --- !u!1 &2358341703985802828
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +168,7 @@ Transform:
   m_Children:
   - {fileID: 500390778384923675}
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8023115500300137698
 MonoBehaviour:
@@ -224,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 1
   spawned: 0
+  waitTime: 5
 --- !u!61 &7545474810303291190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -317,6 +363,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 0
+  waitTime: 3
 --- !u!1 &3238025956912761208
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +410,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 2
+  waitTime: 3
 --- !u!1 &3397169654901687536
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +457,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 1
+  waitTime: 3
 --- !u!1 &3813285335457977548
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +504,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 0
+  waitTime: 3
 --- !u!1 &4212780309619668832
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +551,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 0
+  waitTime: 3
 --- !u!1 &4647684826831669945
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +582,7 @@ Transform:
   - {fileID: 2867618646853461329}
   - {fileID: 6166753845278528312}
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4786419688156982823
 GameObject:
@@ -579,6 +630,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 3
+  waitTime: 3
 --- !u!1 &4789915703456550573
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +677,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 0
+  waitTime: 3
 --- !u!1 &5561307342713900263
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +724,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 3
+  waitTime: 3
 --- !u!1 &5567693211385832221
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +771,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 0
+  waitTime: 3
 --- !u!1 &5869692064137989815
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +905,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 1
+  waitTime: 3
 --- !u!1 &6034509337615284222
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +952,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 2
+  waitTime: 3
 --- !u!1 &6095458879777572472
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +999,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 2
+  waitTime: 3
 --- !u!1 &6995723247599011378
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1046,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 1
+  waitTime: 3
 --- !u!1 &7198128657906294757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &7198128657906294744
 Tilemap:
@@ -1229,7 +1288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &7198128658359174375
 Tilemap:
@@ -3300,6 +3359,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7547151206657376137}
   - {fileID: 8859541028254679778}
   - {fileID: 571963247611061873}
   - {fileID: 7198128659318785831}
@@ -3364,7 +3424,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &7198128659318785829
 Tilemap:
@@ -6814,7 +6874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &48038611392487018
 PolygonCollider2D:
@@ -6905,6 +6965,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 4
+  waitTime: 3
 --- !u!1 &7734443057320101561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,6 +7012,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 3
+  waitTime: 3
 --- !u!1 &8103769253182093102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6997,6 +7059,7 @@ MonoBehaviour:
   spawned: 0
   chaosLevel: 0
   chaosRequirement: 1
+  waitTime: 3
 --- !u!1 &8652649296527323669
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,7 +7106,7 @@ Transform:
   - {fileID: 6592687686607119589}
   - {fileID: 4944644327390182800}
   m_Father: {fileID: 7198128659149776121}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8975809467462813373
 GameObject:
@@ -7092,6 +7155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 4
   spawned: 0
+  waitTime: 5
 --- !u!61 &3591381580298630037
 BoxCollider2D:
   m_ObjectHideFlags: 0
