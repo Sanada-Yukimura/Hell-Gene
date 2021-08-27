@@ -11,24 +11,32 @@
           <e p="AddRoom.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
           <e p="BossBullet.cs" t="Include" />
+          <e p="Bubble.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="CameraFollow.cs" t="Include" />
           <e p="ChaosCardSelect.cs" t="Include" />
           <e p="ChaosHandler.cs" t="Include" />
           <e p="Cursor.cs" t="Include" />
+          <e p="Decomposer.cs" t="Include" />
           <e p="Destroyer.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyDetection.cs" t="Include" />
           <e p="EnemyPivot.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
           <e p="EnemyTemplates.cs" t="Include" />
+          <e p="Grenade.cs" t="Include" />
+          <e p="ItemProperties.cs" t="Include" />
+          <e p="ItemTemplates.cs" t="Include" />
+          <e p="Laser.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerUI.cs" t="Include" />
           <e p="RoomSpawner.cs" t="Include" />
           <e p="RoomTemplates.cs" t="Include" />
+          <e p="SpitterBullet.cs" t="Include" />
           <e p="StairChecker.cs" t="Include" />
+          <e p="WeaponSwitcher.cs" t="Include" />
         </e>
         <e p="Sprites" t="Include">
           <e p="AstarPathfindingProject" t="Include">
