@@ -63,7 +63,6 @@ public class Boss : MonoBehaviour
             case 0:
                 maxHealth = 500;
                 damage = 10;
-
                 break;
         }
 
@@ -158,7 +157,13 @@ public class Boss : MonoBehaviour
             if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && Vector2.Distance(player.transform.position, transform.position) >= projectileSafety && projectileBuffer <= 0)
             {
                 // Shoot projectile 
+                Shoot();
+                projectileBuffer = 10f;
             }
+        }
+
+        if (health <= 0) {
+            health = 0;
         }
 
 
