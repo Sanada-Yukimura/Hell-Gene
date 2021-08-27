@@ -5,22 +5,36 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     public int damage;
-    public float explodeTimer = 3f;
+    public float explodeTimer;
+    
 
+    void Update()
+    {
+        explodeTimer -= Time.deltaTime;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "Enemy")
+        if(explodeTimer <= 0)
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos() // Debug hitboxes
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5);
+
+        //Gizmos.DrawWireSphere(firePoint.position, 0.5f);
     }
 }

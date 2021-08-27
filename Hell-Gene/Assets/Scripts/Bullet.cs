@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
 
-        Destroy(gameObject);
+        if (collision.gameObject.tag != "Player") Destroy(gameObject);
     }
 
     private void OnBecameInvisible()

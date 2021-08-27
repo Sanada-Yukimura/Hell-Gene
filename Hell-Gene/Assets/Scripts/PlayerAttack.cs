@@ -98,16 +98,22 @@ public class PlayerAttack : MonoBehaviour
         // Gun attacks
         if (gunCooldown <= 0)
         {
-            if (Input.GetMouseButtonDown(1)) // Right click
+            switch (rangeType) //What do on right click
             {
-                isMouseDown = true;
-                if(rangeType == 0) RangedAttack(); //single shots
+                case 0:
+                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                    break;
+                case 1:
+                    if (Input.GetMouseButton(1)) RangedAttack(); //held shot
+                    break;
+                case 2:
+                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                    break;
+                default:
+                    if (Input.GetMouseButtonDown(1)) RangedAttack();
+                    break;
+
             }
-            else if (Input.GetMouseButtonUp(1))
-            {
-                isMouseDown = false;
-            }
-            if(rangeType == 1 && isMouseDown) RangedAttack(); //held shots
         }
         else {
             gunCooldown -= Time.deltaTime;
@@ -133,6 +139,9 @@ public class PlayerAttack : MonoBehaviour
                 startGunCooldown = 0.5f;
                 break;
             case 1:
+                startGunCooldown = 0.5f;
+                break;
+            case 2:
                 startGunCooldown = 0.5f;
                 break;
         }
@@ -221,9 +230,12 @@ public class PlayerAttack : MonoBehaviour
             case 0: //default
                 bulletPrefab = bulletPrefabs[0];
                 break;
-            case 1:
+            case 1: //teethigun
                 bulletPrefab = bulletPrefabs[1];
                 gunCooldown = 0.1f;
+                break;
+            case 2: //grenade launcher
+                bulletPrefab = bulletPrefabs[2];
                 break;
             default:
                 bulletPrefab = bulletPrefabs[0];
