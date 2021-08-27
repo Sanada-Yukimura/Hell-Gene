@@ -11,10 +11,10 @@ public class Bullet : MonoBehaviour
     {
 
         if (collision.gameObject.tag == "Enemycollider") {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
         }
 
-        if (collision.gameObject.tag != "Player") Destroy(gameObject);
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy") Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
