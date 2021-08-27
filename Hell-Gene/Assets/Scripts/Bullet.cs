@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemycollider") {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
 

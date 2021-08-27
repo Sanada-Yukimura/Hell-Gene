@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     // 3 = Imp
     // 4 = Bomber
     // 5 = Commander
+    // 6 = Spitter
 
     public Transform attackPos; // Position of hitbox
     public float attackRange; // Range of the hitbox
