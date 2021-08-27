@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     public int lungeForce; // Force to move forward on final hit
 
     public int maxCombo;
-    private int combo = 0;
+    public int combo = 0;
     public float comboCooldown;
     private float comboCountdown;
 
