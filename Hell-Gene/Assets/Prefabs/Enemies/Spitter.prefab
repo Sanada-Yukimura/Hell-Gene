@@ -169,7 +169,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyType: 0
   enemyVariant: 6
-  enemyBullet: {fileID: 0}
+  enemyBullet: {fileID: 7458745492752984103, guid: f22aacca3c531374cb0383785a23b6af, type: 3}
   bulletForce: 0
   attackPos: {fileID: 929030801642114030}
   attackRange: 0.8

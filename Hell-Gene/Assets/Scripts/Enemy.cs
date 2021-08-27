@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour
                 damage = 10;
                 maxHealth = 45;
                 aipath.maxSpeed = 3;
+                bulletForce = 5;
                 knockbackForce = 300;
                 maxAttackTime = 10f;
                 break;
