@@ -1354,7 +1354,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2013,12 +2013,12 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: ee9579772d6ec7b428d4a33a3da6986a, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 9f5381cd0aae9bf4989728da0f62f915, type: 3}
-  - m_RefCount: 5
-    m_Data: {fileID: 21300000, guid: 291dc5337187a8d46b6d8ae231f8190c, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 5
+    m_Data: {fileID: 21300000, guid: 291dc5337187a8d46b6d8ae231f8190c, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 9f5381cd0aae9bf4989728da0f62f915, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: fa5eb755c42bca642bcfc6196e53b7f8, type: 3}
   - m_RefCount: 21
@@ -2200,7 +2200,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2348960516819334914}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 11
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

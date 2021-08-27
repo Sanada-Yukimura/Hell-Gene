@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Follow: {fileID: 4247705544814528112}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 11
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -936,7 +936,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2981,16 +2981,16 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 6b2e0e91b69093142922faa82cec1f88, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 21300000, guid: 79b52f80b8d3415488841bdee118daba, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 114
     m_Data: {fileID: 21300000, guid: 291dc5337187a8d46b6d8ae231f8190c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 6b2e0e91b69093142922faa82cec1f88, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 21300000, guid: 5c1f69885e49698479b306a7e6b8ebb1, type: 3}
   - m_RefCount: 1
