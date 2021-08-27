@@ -6,9 +6,9 @@ using Pathfinding;
 public class Boss : MonoBehaviour
 {
     public int bossLevel = 0;
-    public float maxHealth;
-    public float health;
-    public float damage;
+    public int maxHealth;
+    public int health;
+    public int damage;
     public int knockback;
 
     int phase = 0;
@@ -61,8 +61,8 @@ public class Boss : MonoBehaviour
 
         switch(bossLevel) {
             case 0:
-                maxHealth = 500f;
-                damage = 10f;
+                maxHealth = 500;
+                damage = 10;
                 break;
         }
 
@@ -202,10 +202,9 @@ public class Boss : MonoBehaviour
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        float damageTaken = damage * player.GetComponent<PlayerAttack>().attackMod;
-        health -= damageTaken;
+        health -= damage;
 
         //healthBar.fillAmount = (float)health / maxHealth;
     }

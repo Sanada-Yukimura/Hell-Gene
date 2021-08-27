@@ -6,7 +6,7 @@ public class Bubble : MonoBehaviour
 {
     public float damageInterval;
     public float despawnTimer;
-    public float damage;
+    public int damage;
     private bool firstProc = false;
 
     void Update()

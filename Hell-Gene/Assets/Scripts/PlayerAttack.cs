@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public int meleeDurability = 0;
     public int rangedDurability = 0;
 
-    public float damage;
+    public int damage;
     public int knockbackForce; // Needs to be a big number in the 100s at least
     public int lungeForce; // Force to move forward on final hit
 
@@ -58,8 +58,7 @@ public class PlayerAttack : MonoBehaviour
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         playerMov = GetComponent<PlayerMovement>();
-
-        attackMod = PlayerPrefs.GetFloat("AttackMod", 1);
+        attackMod = 1.1f;
     }
 
     // Update is called once per frame
@@ -164,7 +163,7 @@ public class PlayerAttack : MonoBehaviour
             case 0: //default
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
-                damage = 10f;
+                damage = 10;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1000;
@@ -173,7 +172,7 @@ public class PlayerAttack : MonoBehaviour
             case 1: //scythe
                 startAttackCooldown = 0.08f;
                 attackRange = 1.2f;
-                damage = 20f;
+                damage = 20;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1200;
@@ -182,7 +181,7 @@ public class PlayerAttack : MonoBehaviour
             case 2: //fish
                 startAttackCooldown = 0.04f;
                 attackRange = 0.6f;
-                damage = 8f;
+                damage = 8;
                 maxCombo = 3;
                 comboCooldown = 0.2f;
                 knockbackForce = 500;
@@ -191,7 +190,7 @@ public class PlayerAttack : MonoBehaviour
             case 3: //buster
                 startAttackCooldown = 1.0f;
                 attackRange = 1.0f;
-                damage = 50f;
+                damage = 50;
                 maxCombo = 3;
                 comboCooldown = 0.8f;
                 knockbackForce = 2000;
@@ -200,7 +199,7 @@ public class PlayerAttack : MonoBehaviour
             case 4: //katana
                 startAttackCooldown = 0.1f;
                 attackRange = 0.9f;
-                damage = 15f;
+                damage = 15;
                 maxCombo = 3;
                 comboCooldown = 0.5f;
                 knockbackForce = 1000;
@@ -209,7 +208,7 @@ public class PlayerAttack : MonoBehaviour
             case 5: //fan
                 startAttackCooldown = 0.1f;
                 attackRange = 1.5f;
-                damage = 10f;
+                damage = 10;
                 maxCombo = 3;
                 comboCooldown = 0.5f;
                 knockbackForce = 2500;
@@ -218,7 +217,7 @@ public class PlayerAttack : MonoBehaviour
             default:
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
-                damage = 10f;
+                damage = 10;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1000;
@@ -304,12 +303,12 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (enemiesToDamage[i].gameObject.CompareTag("Enemycollider"))
                 {
-                    enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage((damage * 2f));
+                    enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage * 2);
                     enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
                     Debug.Log("Attacking Enemy");
                 }
                 else if (enemiesToDamage[i].gameObject.CompareTag("BossCollider")) {
-                    enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage((damage * 2f));
+                    enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage(damage * 2);
                     enemiesToDamage[i].GetComponentInParent<Boss>().Knockback(transform.position, (knockbackForce * 3));
                     Debug.Log("Attacking Boss");
                 }
