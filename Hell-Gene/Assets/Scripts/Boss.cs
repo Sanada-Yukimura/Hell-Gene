@@ -46,6 +46,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         phase = 0;
 
@@ -62,7 +63,6 @@ public class Boss : MonoBehaviour
             case 0:
                 maxHealth = 500;
                 damage = 10;
-
                 break;
         }
 
@@ -110,7 +110,7 @@ public class Boss : MonoBehaviour
                 Debug.Log(playerDamage.Length);
                 for (int i = 0; i < playerDamage.Length; i++) {
                     if (playerDamage[i].gameObject.CompareTag("Player")) {
-                        playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 200);
+                        playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 500);
                         playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                     }
                 }
@@ -157,7 +157,13 @@ public class Boss : MonoBehaviour
             if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && Vector2.Distance(player.transform.position, transform.position) >= projectileSafety && projectileBuffer <= 0)
             {
                 // Shoot projectile 
+                Shoot();
+                projectileBuffer = 10f;
             }
+        }
+
+        if (health <= 0) {
+            health = 0;
         }
 
 

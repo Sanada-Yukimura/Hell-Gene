@@ -37,9 +37,9 @@ public class EnemySpawner : MonoBehaviour
             Destroy(gameObject, waitTime); //destroys object after time period
         }
     }
-    private void OnDrawGizmos() // Display hitboxes and ranges
-    {
-        Gizmos.color = Color.green; // Display detection range
-        Gizmos.DrawWireSphere(transform.position, 6);
-    }
+    //private void OnDrawGizmos() // Display hitboxes and ranges
+    //{
+    //    Gizmos.color = Color.green; // Display detection range
+    //    Gizmos.DrawWireSphere(transform.position, 6);
+    //}
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3375756681129136024}
   - component: {fileID: 3375756681129136025}
   - component: {fileID: 3375756681129136026}
-  - component: {fileID: 649243722004392052}
+  - component: {fileID: -5157906726565938972}
   m_Layer: 0
   m_Name: Staircase
   m_TagString: Untagged
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe4bac2eaf97684b8c4478706730a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &649243722004392052
+--- !u!61 &-5157906726565938972
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

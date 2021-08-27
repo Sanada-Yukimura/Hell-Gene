@@ -8,9 +8,11 @@ public class ChaosHandler : MonoBehaviour
     public int chaosLevel;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+	    chaosLevel = PlayerPrefs.GetInt("CurrentChaos", 0);
+        //Debug.Log("Current Chaos is: " + chaosLevel);
+
+
     }
 
     // Update is called once per frame

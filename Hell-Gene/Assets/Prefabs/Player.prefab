@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7747925409631094850}
   - component: {fileID: 7747925409631094852}
   - component: {fileID: 7747925409631094851}
-  m_Layer: 0
+  - component: {fileID: 2303267911487165780}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907ccb68cc506904d9193f287cfc57c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facing: 0
+  animator: {fileID: 2303267911487165780}
+  lookDir: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0}
+  cam: {fileID: 0}
   moveSpeed: 8
   rb: {fileID: 7747925409631094852}
   isInvincible: 0
@@ -120,9 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   startAttackCooldown: 0
+  attackMod: 0
   startGunCooldown: 0
   meleeType: 0
   rangeType: 0
+  meleeDurability: 0
+  rangedDurability: 0
   damage: 0
   knockbackForce: 0
   lungeForce: 0
@@ -130,12 +139,17 @@ MonoBehaviour:
   comboCooldown: 0
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   attackPos: {fileID: 7747925410972854134}
   attackRange: 0.8
   firePoint: {fileID: 7747925410415345937}
-  bulletPrefab: {fileID: 1511961198252282586, guid: 60aaf5652b6fc7943b872ae749a09ea6, type: 3}
-  bulletForce: 20
+  bulletPrefabs:
+  - {fileID: 1511961198252282586, guid: 60aaf5652b6fc7943b872ae749a09ea6, type: 3}
+  - {fileID: 2473264646020550017, guid: 3b0b42235f2b44d458b3fab68eaa9b73, type: 3}
+  - {fileID: 5070561916012893536, guid: 61fe0200f347c5d449f0b5d4f69f8023, type: 3}
+  - {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
+  - {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
+  - {fileID: 5867336259652550117, guid: 3a80cfc574e5ec941bf1d5d4cca408d5, type: 3}
 --- !u!50 &7747925409631094852
 Rigidbody2D:
   serializedVersion: 4
@@ -170,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.07609491}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,8 +195,27 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.84781015}
   m_EdgeRadius: 0
+--- !u!95 &2303267911487165780
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747925409631094849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9e045a37e6b8bc42893ed66737b874b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7747925410415345936
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7747925410415345937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925410972854134}
   - component: {fileID: 7747925410972854135}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925411067140297}
   - component: {fileID: 7747925411067140298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925411163120867}
   - component: {fileID: 7747925411163120868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

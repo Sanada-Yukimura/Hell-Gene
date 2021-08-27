@@ -10,12 +10,15 @@ public class PlayerAttack : MonoBehaviour
     
     private float attackCooldown;
     public float startAttackCooldown;
+    public float attackMod;
 
     private float gunCooldown;
     public float startGunCooldown;
 
     public int meleeType = 0;
     public int rangeType = 0;
+    public int meleeDurability = 0;
+    public int rangedDurability = 0;
 
     public int damage;
     public int knockbackForce; // Needs to be a big number in the 100s at least
@@ -25,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
     private int combo = 0;
     public float comboCooldown;
     private float comboCountdown;
+
+    private bool isMouseDown; //checks if the mouse is down
 
     Vector3 enemyTarget;
 
@@ -36,13 +41,14 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    public GameObject[] bulletPrefabs;
 
     PlayerMovement playerMov;
 
     Rigidbody2D rb;
 
-    public int bulletForce; // Speed of the bullet
+    private int bulletForce = 20; // Speed of the bullet
+    private int ammo;
 
     private Vector3 mouseDir;
 
@@ -52,6 +58,7 @@ public class PlayerAttack : MonoBehaviour
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         playerMov = GetComponent<PlayerMovement>();
+        attackMod = 1.1f;
     }
 
     // Update is called once per frame
@@ -96,9 +103,54 @@ public class PlayerAttack : MonoBehaviour
         // Gun attacks
         if (gunCooldown <= 0)
         {
-            if (Input.GetMouseButtonDown(1)) // Right click
+            switch (rangeType) //What do on right click
             {
-                RangedAttack();
+                case 0: //basic
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 0.4f;
+                        RangedAttack(); //single shots
+                    }
+                    break;
+                case 1: //minigun
+                    if (Input.GetMouseButton(1))
+                    {
+                        gunCooldown = 0.1f;
+                        RangedAttack(); //held shot
+                    }
+                    break;
+                case 2: //grenade launcher
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 1.5f;
+                        RangedAttack(); //single shots
+                    }
+                    break;
+                case 3: //decomposer
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 0.8f;
+                        RangedAttack(); //single shots
+                    }
+                    break;
+                case 4: //laser
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 2f;
+                        Invoke("RangedAttack", 1f); //single shots
+                    }
+                    break;
+                case 5: //bubble
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 1f;
+                        RangedAttack(); //single shots
+                    }
+                    break;
+                default:
+                    if (Input.GetMouseButtonDown(1)) RangedAttack();
+                    break;
+
             }
         }
         else {
@@ -108,7 +160,61 @@ public class PlayerAttack : MonoBehaviour
 
         // Changing melee weapon stats based on which is equipped
         switch(meleeType){
-            case 0:
+            case 0: //default
+                startAttackCooldown = 0.08f;
+                attackRange = 0.8f;
+                damage = 10;
+                maxCombo = 3;
+                comboCooldown = 0.4f;
+                knockbackForce = 1000;
+                lungeForce = 500;
+                break;
+            case 1: //scythe
+                startAttackCooldown = 0.08f;
+                attackRange = 1.2f;
+                damage = 20;
+                maxCombo = 3;
+                comboCooldown = 0.4f;
+                knockbackForce = 1200;
+                lungeForce = 500;
+                break;
+            case 2: //fish
+                startAttackCooldown = 0.04f;
+                attackRange = 0.6f;
+                damage = 8;
+                maxCombo = 3;
+                comboCooldown = 0.2f;
+                knockbackForce = 500;
+                lungeForce = 500;
+                break;
+            case 3: //buster
+                startAttackCooldown = 1.0f;
+                attackRange = 1.0f;
+                damage = 50;
+                maxCombo = 3;
+                comboCooldown = 0.8f;
+                knockbackForce = 2000;
+                lungeForce = 500;
+                break;
+            case 4: //katana
+                startAttackCooldown = 0.1f;
+                attackRange = 0.9f;
+                damage = 15;
+                maxCombo = 3;
+                comboCooldown = 0.5f;
+                knockbackForce = 1000;
+                lungeForce = 800;
+                break;
+            case 5: //fan
+                startAttackCooldown = 0.1f;
+                attackRange = 1.5f;
+                damage = 10;
+                maxCombo = 3;
+                comboCooldown = 0.5f;
+                knockbackForce = 2500;
+                lungeForce = 500;
+                break;
+            default:
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
                 damage = 10;
@@ -121,10 +227,33 @@ public class PlayerAttack : MonoBehaviour
 
         // Changing ranged weapon stats based on which is equipped
         switch (rangeType) {
-            case 0:
+            case 0: //default
                 startGunCooldown = 0.5f;
-
-
+                bulletForce = 20;
+                break;
+            case 1: //minigun
+                startGunCooldown = 0.5f;
+                bulletForce = 25;
+                break;
+            case 2: //nade
+                startGunCooldown = 0.5f;
+                bulletForce = 10;
+                break;
+            case 3: //decomposer
+                startGunCooldown = 0.5f;
+                bulletForce = 20;
+                break;
+            case 4: //laser
+                startGunCooldown = 0.5f;
+                bulletForce = 0;
+                break;
+            case 5: //bubble
+                startGunCooldown = 0.5f;
+                bulletForce = 5;
+                break;
+            default:
+                startGunCooldown = 0.5f;
+                bulletForce = 20;
                 break;
         }
 
@@ -202,16 +331,43 @@ public class PlayerAttack : MonoBehaviour
             playerMov.invincibleCountdown = 0.2f;
         }
 
-
+        //durability
+        if (meleeType != 0) meleeDurability--;
+        if (meleeDurability <= 0) meleeType = 0;
     }
 
     void RangedAttack() {
+        //load bullet
+        GameObject bulletPrefab = bulletPrefabs[0];
+        if(rangeType != 0) bulletPrefab = bulletPrefabs[rangeType];
+
+        //fire bullet
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-    }
 
-    private void OnDrawGizmos() // Debug hitboxes
+        //durability
+        if (rangeType != 0) rangedDurability--;
+        if (rangedDurability <= 0) rangeType = 0;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ItemCollider"))
+        {
+            if (collision.gameObject.GetComponent<ItemProperties>().isMelee)
+            {
+                meleeType = collision.gameObject.GetComponent<ItemProperties>().weaponType;
+                meleeDurability = collision.gameObject.GetComponent<ItemProperties>().durability;
+            }
+            else
+            {
+                rangeType = collision.gameObject.GetComponent<ItemProperties>().weaponType;
+                rangedDurability = collision.gameObject.GetComponent<ItemProperties>().durability;
+            }
+            Destroy(collision.gameObject);
+        }
+    }
+        private void OnDrawGizmos() // Debug hitboxes
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);

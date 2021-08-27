@@ -5,21 +5,24 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public int damage = 5;
+    public int damage;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Enemy") {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        if (collision.gameObject.tag == "Enemycollider") {
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
+            Destroy(gameObject);
         }
+    }
 
-        Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6) Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
-
 }
