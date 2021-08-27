@@ -1375,6 +1375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Over Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 7183827476632837707, guid: 9ce444c93e7b44d4eaf57db1983c2dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7183827476632837710, guid: 9ce444c93e7b44d4eaf57db1983c2dfd, type: 3}
       propertyPath: m_Camera
       value: 
