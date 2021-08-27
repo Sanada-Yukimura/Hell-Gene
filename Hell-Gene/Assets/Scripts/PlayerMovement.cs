@@ -5,6 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    //facing (0=nothing,1=Up,2=Right,3=Left,4=Down)
+    public int facing = 0;
+    public Animator animator;
+    public Vector2 lookDir;
+    float angle;
+    public Vector2 mousePos;
+    public Camera cam;
+
     public float moveSpeed;
     public Rigidbody2D rb;
 
@@ -27,12 +35,15 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         isInvincible = false;
         canMove = true;
+
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Inputs();
+        checkFacing();
 
         if (invincibleCountdown >= 0) {
             invincibleCountdown -= Time.deltaTime;
@@ -86,6 +97,9 @@ public class PlayerMovement : MonoBehaviour
     void Inputs() {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", moveX);
+        animator.SetFloat("Vertical", moveY);
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
@@ -160,6 +174,52 @@ public class PlayerMovement : MonoBehaviour
 
     void Dash() {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed * 10, moveDirection.y * moveSpeed * 10);
+    }
+
+    private void checkFacing()
+    {
+
+        //Uses camera to create ingame pixel units for distance
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+
+        animator.SetFloat("Speed", moveSpeed);
+        animator.SetFloat("Facing", facing);
+
+        //Vector for mouse position - player position
+        lookDir = mousePos - rb.position;
+
+        //In reference t0 the mouse pos;
+
+        //Angle after math
+        angle = Mathf.Atan2(lookDir.y, lookDir.x);
+        //Conversion from radians to degrees with the fixing of the offset of 45
+        angle *= Mathf.Rad2Deg;
+        if (angle < 0)
+        {
+            angle += 360;
+        }
+        Debug.Log(angle);
+
+        if (angle > 45f && angle <= 135f)
+        {
+            facing = 1;
+        }
+
+        else if (angle > 135f && angle <= 225f)
+        {
+            facing = 3;
+        }
+
+        else if (angle > 225f && angle <= 315f)
+        {
+            facing = 4;
+        }
+        else
+        {
+            facing = 2;
+        }
+
     }
 
 }
