@@ -170,6 +170,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            RollForRandomItemDrop();
             Destroy(gameObject);
         }
 
@@ -284,6 +285,7 @@ public class Enemy : MonoBehaviour
             }
 
             Destroy(gameObject);
+            RollForRandomItemDrop();
         }
     }
 
@@ -302,6 +304,18 @@ public class Enemy : MonoBehaviour
 		    //Debug.Log("Triggered!");
 		    initialAggroTrigger = true;
 	    }
+    }
+
+    void RollForRandomItemDrop() {
+        // Random number generator
+        int number = UnityEngine.Random.Range(1,101);
+
+        Debug.Log(number);
+
+        if (number <= 10) {
+            Debug.Log("10% drop rate!");    
+        }
+
     }
 
     private void OnDrawGizmos() // Display hitboxes and ranges
