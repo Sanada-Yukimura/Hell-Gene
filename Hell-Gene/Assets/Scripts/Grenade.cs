@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Grenade : MonoBehaviour
 {
-
     public int damage;
+    public float explodeTimer = 3f;
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy")
+        {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
 
@@ -21,5 +23,4 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }

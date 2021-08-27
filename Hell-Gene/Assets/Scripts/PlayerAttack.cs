@@ -26,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     public float comboCooldown;
     private float comboCountdown;
 
+    private bool isMouseDown; //checks if the mouse is down
+
     Vector3 enemyTarget;
 
     Transform player;
@@ -36,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    public GameObject[] bulletPrefabs;
 
     PlayerMovement playerMov;
 
@@ -98,8 +100,14 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1)) // Right click
             {
-                RangedAttack();
+                isMouseDown = true;
+                if(rangeType == 0) RangedAttack(); //single shots
             }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                isMouseDown = false;
+            }
+            if(rangeType == 1 && isMouseDown) RangedAttack(); //held shots
         }
         else {
             gunCooldown -= Time.deltaTime;
@@ -108,7 +116,7 @@ public class PlayerAttack : MonoBehaviour
 
         // Changing melee weapon stats based on which is equipped
         switch(meleeType){
-            case 0:
+            case 0: //default
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
                 damage = 10;
@@ -121,10 +129,11 @@ public class PlayerAttack : MonoBehaviour
 
         // Changing ranged weapon stats based on which is equipped
         switch (rangeType) {
-            case 0:
+            case 0: //default
                 startGunCooldown = 0.5f;
-
-
+                break;
+            case 1:
+                startGunCooldown = 0.5f;
                 break;
         }
 
@@ -206,6 +215,20 @@ public class PlayerAttack : MonoBehaviour
     }
 
     void RangedAttack() {
+        GameObject bulletPrefab;
+        switch (rangeType)
+        {
+            case 0: //default
+                bulletPrefab = bulletPrefabs[0];
+                break;
+            case 1:
+                bulletPrefab = bulletPrefabs[1];
+                gunCooldown = 0.1f;
+                break;
+            default:
+                bulletPrefab = bulletPrefabs[0];
+                break;
+        }
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
