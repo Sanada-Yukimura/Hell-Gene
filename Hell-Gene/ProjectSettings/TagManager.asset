@@ -17,6 +17,7 @@ TagManager:
   - CameraBoundary
   - StairSpawn
   - Items
+  - ItemCollider
   layers:
   - Default
   - TransparentFX
