@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public class ClosedDestroyer : MonoBehaviour
 {
-    // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Spawnpoint" || collider.gameObject.tag == "Module")
+        if (collider.gameObject.tag == "Spawnpoint")
         {
             Destroy(collider.gameObject);
         }

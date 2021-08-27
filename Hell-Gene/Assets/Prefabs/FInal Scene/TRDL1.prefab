@@ -142,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 0
   spawned: 1
-  waitTime: 5
 --- !u!1 &2651033599092849817
 GameObject:
   m_ObjectHideFlags: 0
@@ -9134,7 +9133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 2
   spawned: 0
-  waitTime: 5
 --- !u!61 &6820760778808865028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9276,7 +9274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 3
   spawned: 0
-  waitTime: 5
 --- !u!61 &7478208606651429162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9371,7 +9368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 4
   spawned: 0
-  waitTime: 5
 --- !u!61 &8463825680928267194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9645,7 +9641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDirection: 1
   spawned: 0
-  waitTime: 5
 --- !u!61 &5507351908651276758
 BoxCollider2D:
   m_ObjectHideFlags: 0
