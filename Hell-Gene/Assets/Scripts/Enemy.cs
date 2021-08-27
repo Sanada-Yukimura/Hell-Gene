@@ -24,11 +24,25 @@ public class Enemy : MonoBehaviour
 
     public GameObject player;
 
-    private int enemyType;
+    public int enemyType;
     private bool initialAggroTrigger;
+
+    public int enemyVariant;
+    // 0 = Lurker
+    // 1 = Watcher
+    // 2 = Orc
+    // 3 = Imp
+    // 4 = Bomber
+    // 5 = Commander
+    // 6 = Spitter
+
+    public GameObject enemyBullet;
+    public int bulletForce;
 
     public Transform attackPos; // Position of hitbox
     public float attackRange; // Range of the hitbox
+
+    public Transform firePoint;
 
     public float attackTriggerRange; // Range of when enemy decides to attack.
     public float projectileTriggerRange; // Range of when enemy decides to shoot projectile
@@ -38,15 +52,74 @@ public class Enemy : MonoBehaviour
     public bool isMelee; //categorizes enemies for melee and ranged
     private bool isFleeing; //fleeing boolean
 
+    public LayerMask whatIsPlayer;
+
+    public float maxAttackTime;
+    public float attackTimer;
+    public int knockbackForce;
+
+    public bool isExploding; // For bomber
+
     // Start is called before the first frame update
     void Start()
     {
 
         rb = GetComponent<Rigidbody2D>();
         
-        health = maxHealth;
+        switch (enemyVariant) {
+            case 0: // Lurker
+                damage = 3;
+                maxHealth = 30;
+                aipath.maxSpeed = 2;
+                knockbackForce = 300;
+                maxAttackTime = 10f;
+                break;
+            case 1: // Watcher
+                damage = 3;
+                maxHealth = 25;
+                aipath.maxSpeed = 3;
+                bulletForce = 10;
+                maxAttackTime = 15f;
+                break;
+            case 2: // Orc
+                damage = 10;
+                maxHealth = 60;
+                aipath.maxSpeed = 1;
+                knockbackForce = 700;
+                maxAttackTime = 10f;
+                break;
+            case 3: // Imp
+                damage = 5;
+                maxHealth = 15;
+                aipath.maxSpeed = 5;
+                knockbackForce = 200;
+                maxAttackTime = 1f;
+                break;
+            case 4: // Bomber
+                damage = 20;
+                maxHealth = 20;
+                aipath.maxSpeed = 4;
+                knockbackForce = 1500;
+                maxAttackTime = 5f;
+                break;
+            case 5: // Commander
+                damage = 15;
+                maxHealth = 100;
+                aipath.maxSpeed = 3;
+                knockbackForce = 500;
+                maxAttackTime = 10f;
+                break;
+            case 6: // Spitter
+                damage = 10;
+                maxHealth = 45;
+                aipath.maxSpeed = 3;
+                knockbackForce = 300;
+                maxAttackTime = 10f;
+                break;
+        }
 
-        damage = 10;
+        health = maxHealth;
+        attackTimer = maxAttackTime;
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -73,11 +146,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (initialAggroTrigger)
-            {
-                aipath.canSearch = true;
-            }
-
             if (health <= 0)
             {
                 Destroy(gameObject);
@@ -86,10 +154,11 @@ public class Enemy : MonoBehaviour
             if (hitStun)
             {
                 aipath.canSearch = false;
+                aipath.canMove = false;
                 hitStunTimer -= Time.deltaTime;
             }
 
-            if (!hitStun && initialAggroTrigger)
+            if (!hitStun && initialAggroTrigger && !isExploding)
             {
                 aipath.canSearch = true;
                 hitStunTimer = 1.0f;
@@ -102,20 +171,33 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange) //sets destination to player location if within detection range
+        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
         {
             initialAggroTrigger = true;
             aipath.destination = player.transform.position;
+        }
+
+        if (attackTimer >= 0 && enemyVariant != 4) {
+            attackTimer -= Time.deltaTime;
+        }
+
+        if (isExploding && enemyVariant == 4) {
+            Debug.Log("Exploding!");
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0) {
+                Attack(damage);
+            }
         }
 
         // Trigger attack
         if (Vector2.Distance(player.transform.position, transform.position) <= attackTriggerRange) {
             // Do attack logic here
             aipath.canSearch = false;
+            aipath.canMove = false;
             //if enemy is a melee attacker
             if (isMelee)
             {
-                Attack(1); //attack if melee enemy
+                Attack(damage); //attack if melee enemy
             }
             else
             {
@@ -129,9 +211,12 @@ public class Enemy : MonoBehaviour
             // Do projectile logic here
             if (!isMelee)
             {
-                aipath.canSearch = false;
-                aipath.canMove = false;
-                Fire(1);
+                if (attackTimer <= 0)
+                {
+                    aipath.canSearch = false;
+                    aipath.canMove = false;
+                    Fire(damage);
+                }
             }
         }
         else //disable fleeing if player is outside range
@@ -143,12 +228,20 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-        health -= damage;
+
+        if (enemyVariant != 5)
+        {
+            health -= damage;
+        }
+        else { // Commander takes halved damage
+            health -= (int)(damage / 2);
+        }
 
         healthBar.fillAmount = (float)health / maxHealth;
     }
 
     public void Knockback(Vector3 position, int force) {
+
         Vector3 knockbackDir = (transform.position - position).normalized;
         hitStun = true;
 
@@ -158,11 +251,48 @@ public class Enemy : MonoBehaviour
     public void Attack(int attackDamage)
     {
         //placeholder method for enemy melee attacks
+        Collider2D[] playerDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
+
+        if (enemyVariant != 4 && attackTimer <= 0)
+        {
+            for (int i = 0; i < playerDamage.Length; i++)
+            {
+                if (playerDamage[i].gameObject.CompareTag("Player"))
+                {
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                }
+            }
+            attackTimer = maxAttackTime;
+        }
+
+        if (enemyVariant == 4 && !isExploding) {
+            isExploding = true;
+            aipath.canMove = false;
+            aipath.canSearch = false;
+        }
+
+        if (enemyVariant == 4 && isExploding && attackTimer <= 0) {
+            for (int i = 0; i < playerDamage.Length; i++) {
+                if (playerDamage[i].gameObject.CompareTag("Player"))
+                {
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                }
+            }
+
+            Destroy(gameObject);
+        }
     }
 
     public void Fire(int attackDamage)
     {
         //placeholder method for enemy ranged attacks
+        GameObject bullet = Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
+        Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
+        bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+
+        attackTimer = maxAttackTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

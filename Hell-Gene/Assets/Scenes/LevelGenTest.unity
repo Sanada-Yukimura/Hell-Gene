@@ -322,6 +322,11 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 498066460192946569, guid: 0561b1d860289984db175978595a9f51, type: 3}
   - {fileID: 1517401266210122561, guid: 865ae81bbb6c0764cba2be2d40f11d08, type: 3}
+  - {fileID: 4675804969267511189, guid: 4f54a35c78b444542983f7f024514510, type: 3}
+  - {fileID: 2565954809042178965, guid: 3824705db016b1e4799d0d7380cd9fa0, type: 3}
+  - {fileID: 1691141420449730690, guid: 4ae3a0b1b91b4f6408e87afb3dfb861d, type: 3}
+  - {fileID: 9123696076914571451, guid: 56fd896ad64327249a1a80658f10d7c9, type: 3}
+  - {fileID: 8547044654198680522, guid: 6df4915993e52ce48ad043c8c52073db, type: 3}
 --- !u!4 &445164474
 Transform:
   m_ObjectHideFlags: 0
@@ -465,6 +470,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: rangeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: whatIsEnemy.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1511961198252282586, guid: 60aaf5652b6fc7943b872ae749a09ea6, type: 3}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2473264646020550017, guid: 3b0b42235f2b44d458b3fab68eaa9b73, type: 3}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5070561916012893536, guid: 61fe0200f347c5d449f0b5d4f69f8023, type: 3}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
     - target: {fileID: 7747925409631094855, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/ChaosCardTest.unity
-    guid: 8ec8dc67a013df741a80113e63cf47e3
-  - enabled: 1
-    path: Assets/Scenes/LevelGenTest.unity
-    guid: 0506f2e8ff4d6ff418432abfd3ff49c4
   m_configObjects: {}
