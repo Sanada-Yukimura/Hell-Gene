@@ -17,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
 
     public int meleeType = 0;
     public int rangeType = 0;
+    public int meleeDurability = 0;
+    public int rangedDurability = 0;
 
     public int damage;
     public int knockbackForce; // Needs to be a big number in the 100s at least
@@ -229,23 +231,23 @@ public class PlayerAttack : MonoBehaviour
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
                 break;
-            case 1: 
+            case 1: //minigun
                 startGunCooldown = 0.5f;
                 bulletForce = 25;
                 break;
-            case 2:
+            case 2: //nade
                 startGunCooldown = 0.5f;
                 bulletForce = 10;
                 break;
-            case 3: //default
+            case 3: //decomposer
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
                 break;
-            case 4: //default
+            case 4: //laser
                 startGunCooldown = 0.5f;
                 bulletForce = 0;
                 break;
-            case 5: //default
+            case 5: //bubble
                 startGunCooldown = 0.5f;
                 bulletForce = 5;
                 break;
@@ -329,20 +331,42 @@ public class PlayerAttack : MonoBehaviour
             playerMov.invincibleCountdown = 0.2f;
         }
 
-
+        //durability
+        if (meleeType != 0) meleeDurability--;
+        if (meleeDurability <= 0) meleeType = 0;
     }
 
     void RangedAttack() {
         //load bullet
         GameObject bulletPrefab = bulletPrefabs[0];
         if(rangeType != 0) bulletPrefab = bulletPrefabs[rangeType];
+
         //fire bullet
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-    }
 
-    private void OnDrawGizmos() // Debug hitboxes
+        //durability
+        if (rangeType != 0) rangedDurability--;
+        if (rangedDurability <= 0) rangeType = 0;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ItemCollider"))
+        {
+            if (collision.gameObject.GetComponent<ItemProperties>().isMelee)
+            {
+                meleeType = collision.gameObject.GetComponent<ItemProperties>().weaponType;
+                meleeDurability = collision.gameObject.GetComponent<ItemProperties>().durability;
+            }
+            else
+            {
+                rangeType = collision.gameObject.GetComponent<ItemProperties>().weaponType;
+                rangedDurability = collision.gameObject.GetComponent<ItemProperties>().durability;
+            }
+        }
+    }
+        private void OnDrawGizmos() // Debug hitboxes
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);

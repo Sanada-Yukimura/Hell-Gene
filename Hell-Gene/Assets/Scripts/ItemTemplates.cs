@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemTemplates : MonoBehaviour
 {
-    public GameObject[] items;
+    public GameObject[] meleeWeapons;
+    public GameObject[] rangedWeapons;
 
     // Start is called before the first frame update
     void Start()
