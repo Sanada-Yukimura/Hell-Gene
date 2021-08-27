@@ -16,6 +16,7 @@ TagManager:
   - ChaosHandler
   - CameraBoundary
   - StairSpawn
+  - Items
   layers:
   - Default
   - TransparentFX

@@ -141,7 +141,7 @@ public class Enemy : MonoBehaviour
             aipath.canSearch = false;
             aipath.canMove = false;
             Vector2 playerPos = player.transform.position;
-            Debug.Log(isFleeing);
+            //Debug.Log(isFleeing);
             Vector2 fleeDir = (this.transform.position - player.transform.position).normalized;
             rb.velocity = new Vector2(fleeDir.x * moveSpeed, fleeDir.y * moveSpeed);
         }
@@ -232,12 +232,16 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage) {
 
+        int damageTaken = (int) (damage * player.GetComponent<PlayerAttack>().attackMod);
+        Debug.Log("Attack Mod: " + player.GetComponent<PlayerAttack>().attackMod);
+        Debug.Log("Damage Done: " + damageTaken);
+
         if (enemyVariant != 5)
         {
-            health -= damage;
+            health -= damageTaken;
         }
         else { // Commander takes halved damage
-            health -= (int)(damage / 2);
+            health -= (int)(damageTaken / 2);
         }
 
         healthBar.fillAmount = (float)health / maxHealth;

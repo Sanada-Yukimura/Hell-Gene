@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     
     private float attackCooldown;
     public float startAttackCooldown;
+    public float attackMod;
 
     private float gunCooldown;
     public float startGunCooldown;
@@ -55,6 +56,7 @@ public class PlayerAttack : MonoBehaviour
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         playerMov = GetComponent<PlayerMovement>();
+        attackMod = 1.1f;
     }
 
     // Update is called once per frame
