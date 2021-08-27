@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4675804968939204204}
   - component: {fileID: 4675804968939204207}
   - component: {fileID: 1911739933954088282}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square
   m_TagString: Enemycollider
   m_Icon: {fileID: 0}
@@ -323,8 +323,11 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyType: 1
   enemyVariant: 4
+  enemyBullet: {fileID: 0}
+  bulletForce: 0
   attackPos: {fileID: 4222807014421405617}
   attackRange: 2.4
+  firePoint: {fileID: 0}
   attackTriggerRange: 2.5
   projectileTriggerRange: 0
   detectionRange: 8

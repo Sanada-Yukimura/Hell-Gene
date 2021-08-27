@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 498066460192946567}
   - component: {fileID: 498066460192946566}
   - component: {fileID: 8830721502262623477}
+  - component: {fileID: 2042243838998860240}
   m_Layer: 7
   m_Name: Lurker
   m_TagString: Enemy
@@ -139,8 +140,11 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyType: 1
   enemyVariant: 0
+  enemyBullet: {fileID: 0}
+  bulletForce: 0
   attackPos: {fileID: 8975915456724048301}
   attackRange: 0.8
+  firePoint: {fileID: 0}
   attackTriggerRange: 1.8
   projectileTriggerRange: 0
   detectionRange: 8
@@ -148,7 +152,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1
+  maxAttackTime: 0
   attackTimer: 0
+  knockbackForce: 0
+  isExploding: 0
 --- !u!50 &498066460192946566
 Rigidbody2D:
   serializedVersion: 4
@@ -186,6 +193,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.5
+--- !u!61 &2042243838998860240
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498066460192946569}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &498066460427241141
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +305,7 @@ GameObject:
   - component: {fileID: 498066460669945968}
   - component: {fileID: 498066460669945971}
   - component: {fileID: 6669103451821513542}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square
   m_TagString: Enemycollider
   m_Icon: {fileID: 0}

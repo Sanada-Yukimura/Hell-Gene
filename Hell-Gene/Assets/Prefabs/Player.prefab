@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7747925409631094850}
   - component: {fileID: 7747925409631094852}
   - component: {fileID: 7747925409631094851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   startAttackCooldown: 0
+  attackMod: 0
   startGunCooldown: 0
   meleeType: 0
   rangeType: 0
@@ -197,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7747925410415345937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925410972854134}
   - component: {fileID: 7747925410972854135}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925411067140297}
   - component: {fileID: 7747925411067140298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747925411163120867}
   - component: {fileID: 7747925411163120868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

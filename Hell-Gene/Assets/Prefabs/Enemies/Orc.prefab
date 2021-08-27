@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 9123696076720482626}
   - component: {fileID: 9123696076720482625}
   - component: {fileID: 2664432997862677108}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square
   m_TagString: Enemycollider
   m_Icon: {fileID: 0}
