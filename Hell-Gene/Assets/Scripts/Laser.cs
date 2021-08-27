@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     public float damageInterval;
     public float despawnTimer;
-    public int damage;
+    public float damage;
 
     void Update()
     {
