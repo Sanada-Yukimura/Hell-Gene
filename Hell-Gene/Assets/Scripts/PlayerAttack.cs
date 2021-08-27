@@ -101,17 +101,47 @@ public class PlayerAttack : MonoBehaviour
         {
             switch (rangeType) //What do on right click
             {
-                case 0:
-                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                case 0: //basic
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 0.4f;
+                        RangedAttack(); //single shots
+                    }
                     break;
-                case 1:
-                    if (Input.GetMouseButton(1)) RangedAttack(); //held shot
+                case 1: //minigun
+                    if (Input.GetMouseButton(1))
+                    {
+                        gunCooldown = 0.1f;
+                        RangedAttack(); //held shot
+                    }
                     break;
-                case 2:
-                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                case 2: //grenade launcher
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 1.5f;
+                        RangedAttack(); //single shots
+                    }
                     break;
-                case 3:
-                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                case 3: //decomposer
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 0.8f;
+                        RangedAttack(); //single shots
+                    }
+                    break;
+                case 4: //laser
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 2f;
+                        Invoke("RangedAttack", 1f); //single shots
+                    }
+                    break;
+                case 5: //bubble
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunCooldown = 1f;
+                        RangedAttack(); //single shots
+                    }
                     break;
                 default:
                     if (Input.GetMouseButtonDown(1)) RangedAttack();
@@ -143,7 +173,7 @@ public class PlayerAttack : MonoBehaviour
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
                 break;
-            case 1:
+            case 1: 
                 startGunCooldown = 0.5f;
                 bulletForce = 25;
                 break;
@@ -154,6 +184,14 @@ public class PlayerAttack : MonoBehaviour
             case 3: //default
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
+                break;
+            case 4: //default
+                startGunCooldown = 0.5f;
+                bulletForce = 0;
+                break;
+            case 5: //default
+                startGunCooldown = 0.5f;
+                bulletForce = 5;
                 break;
             default:
                 startGunCooldown = 0.5f;
@@ -239,30 +277,10 @@ public class PlayerAttack : MonoBehaviour
     }
 
     void RangedAttack() {
-        GameObject bulletPrefab;
-        switch (rangeType)
-        {
-            case 0: //default
-                bulletPrefab = bulletPrefabs[0];
-                gunCooldown = 0.4f;
-                break;
-            case 1: //teethigun
-                bulletPrefab = bulletPrefabs[1];
-                gunCooldown = 0.1f;
-                break;
-            case 2: //grenade launcher
-                bulletPrefab = bulletPrefabs[2];
-                gunCooldown = 1.5f;
-                break;
-            case 3: //decomposer
-                bulletPrefab = bulletPrefabs[3];
-                gunCooldown = 0.8f;
-                break;
-            default:
-                bulletPrefab = bulletPrefabs[0];
-                gunCooldown = 0.4f;
-                break;
-        }
+        //load bullet
+        GameObject bulletPrefab = bulletPrefabs[0];
+        if(rangeType != 0) bulletPrefab = bulletPrefabs[rangeType];
+        //fire bullet
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);

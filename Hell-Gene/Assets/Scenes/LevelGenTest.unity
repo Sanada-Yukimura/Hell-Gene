@@ -472,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: rangeType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: whatIsEnemy.m_Bits
@@ -480,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: bulletPrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: bulletPrefabs.Array.data[0]
@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: bulletPrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
+    - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
+      propertyPath: bulletPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
     - target: {fileID: 7747925409631094855, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: m_RootOrder
       value: 2

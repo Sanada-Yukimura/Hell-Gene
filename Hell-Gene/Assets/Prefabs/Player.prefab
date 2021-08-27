@@ -138,7 +138,9 @@ MonoBehaviour:
   - {fileID: 1511961198252282586, guid: 60aaf5652b6fc7943b872ae749a09ea6, type: 3}
   - {fileID: 2473264646020550017, guid: 3b0b42235f2b44d458b3fab68eaa9b73, type: 3}
   - {fileID: 5070561916012893536, guid: 61fe0200f347c5d449f0b5d4f69f8023, type: 3}
-  bulletForce: 20
+  - {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
+  - {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
+  - {fileID: 5867336259652550117, guid: 3a80cfc574e5ec941bf1d5d4cca408d5, type: 3}
 --- !u!50 &7747925409631094852
 Rigidbody2D:
   serializedVersion: 4
