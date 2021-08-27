@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public Image healthBar;
-    public float maxHealth;
-    public float health;
+    public int maxHealth;
+    public int health;
     GameObject thePlayer;
     
     void Start()

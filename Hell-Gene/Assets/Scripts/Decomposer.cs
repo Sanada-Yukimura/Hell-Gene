@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Decomposer : MonoBehaviour
 {
-    public float damage;
+    public int damage;
     public GameObject bulletPrefab;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemycollider")
         {
-            float enemyHealth = collision.gameObject.GetComponentInParent<Enemy>().health;
+            int enemyHealth = collision.gameObject.GetComponentInParent<Enemy>().health;
             if (enemyHealth <= damage) //spawns extra bullets if the collision will kill
             {
                 //up bullet
