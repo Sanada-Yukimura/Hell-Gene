@@ -6,7 +6,7 @@ public class Grenade : MonoBehaviour
 {
     public int damage;
     public float explodeTimer;
-    
+    public int explodeRange;
 
     void Update()
     {
@@ -15,7 +15,7 @@ public class Grenade : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(explodeTimer <= 0)
+        if (collision.GetType() == typeof(CircleCollider2D) && explodeTimer <= 0)
         {
             if (collision.gameObject.tag == "Enemy")
             {
