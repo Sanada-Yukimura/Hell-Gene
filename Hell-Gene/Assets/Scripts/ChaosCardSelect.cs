@@ -7,20 +7,20 @@ using UnityEngine.UI;
 public class ChaosCardSelect : MonoBehaviour {
 	public Button card;
 
-	private int nextSceneNumber;
+	public int nextSceneNumber;
 
 	private bool loadSceneNow = false;
 
-	private int chaosLevel;
+	public int chaosLevel;
     // Start is called before the first frame update
     void Start()
     {
 	    card.onClick.AddListener(OnClicked);
-	    nextSceneNumber = PlayerPrefs.GetInt("nextSceneInt", 1)+1;
+	    nextSceneNumber = PlayerPrefs.GetInt("CurrentChaos", 0)+1;
 	    chaosLevel = PlayerPrefs.GetInt("CurrentChaos", 0);
 	    Debug.Log("Current Chaos is: "+chaosLevel);
-	    
-//	    StartCoroutine(LoadScene());
+        Debug.Log("NextSceneInt is: " + chaosLevel);
+        //	    StartCoroutine(LoadScene());
     }
 
     // Update is called once per frame
@@ -37,11 +37,9 @@ public class ChaosCardSelect : MonoBehaviour {
 		    if (nextSceneNumber < 5) {
 			    SceneManager.LoadScene("Scenes/LevelGenTest");
 		    }
-		    else if (nextSceneNumber == 5) {
-			    SceneManager.LoadScene("Scenes/LevelGenTest"); // Set it to Boss Room
+		    else if (nextSceneNumber >= 5) {
+			    SceneManager.LoadScene("Scenes/BossTest"); // Set it to Boss Room
 		    }
-		    
-		    
 	    }
 
 	    else if (card.name == "RaiseChaos") {
@@ -51,8 +49,8 @@ public class ChaosCardSelect : MonoBehaviour {
 		    if (nextSceneNumber < 5) {
 			    SceneManager.LoadScene("Scenes/LevelGenTest");
 		    }
-		    else if (nextSceneNumber == 5) {
-			    SceneManager.LoadScene("Scenes/LevelGenTest"); // Set it to Boss Room
+		    else if (nextSceneNumber >= 5) {
+			    SceneManager.LoadScene("Scenes/BossTest"); // Set it to Boss Room
 		    }
 	    }
     }
