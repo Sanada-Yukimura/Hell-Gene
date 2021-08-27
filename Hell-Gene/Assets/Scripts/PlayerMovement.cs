@@ -29,12 +29,16 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    PlayerAttack playerAttack;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         isInvincible = false;
         canMove = true;
+
+        playerAttack = GetComponent<PlayerAttack>();
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -78,6 +82,18 @@ public class PlayerMovement : MonoBehaviour
                 canMove = true;
             }
         }
+
+        if (playerAttack.isAttacking)
+        {
+            animator.SetFloat("IsAttacking", 1f);
+            Debug.Log("IsAttacking");
+        }
+        else {
+            animator.SetFloat("IsAttacking", 0f);
+            Debug.Log("NotIsAttacking");
+        }
+
+        animator.SetFloat("Combo", (float)playerAttack.combo);
 
     }
 
