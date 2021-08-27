@@ -124,6 +124,8 @@ MonoBehaviour:
   startGunCooldown: 0
   meleeType: 0
   rangeType: 0
+  meleeDurability: 0
+  rangedDurability: 0
   damage: 0
   knockbackForce: 0
   lungeForce: 0
@@ -131,7 +133,7 @@ MonoBehaviour:
   comboCooldown: 0
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   attackPos: {fileID: 7747925410972854134}
   attackRange: 0.8
   firePoint: {fileID: 7747925410415345937}
