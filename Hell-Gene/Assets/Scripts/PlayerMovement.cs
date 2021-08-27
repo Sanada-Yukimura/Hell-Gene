@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing;
     private float dashTimer;
 
-    public float health = 50f;
+    public int health = 50;
 
     public bool canMove = true;
     private float moveCountdown = 0.5f;
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(knockback * 80, ForceMode2D.Impulse);
 
-                float enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
+                int enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
                 TakeDamage(enemyDamage);
 
                 isInvincible = true;
@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(knockbackDir * force);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (!isInvincible)
         {
@@ -215,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
         {
             angle += 360;
         }
-        //Debug.Log(angle);
+        Debug.Log(angle);
 
         if (angle > 45f && angle <= 135f)
         {

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   startAttackCooldown: 0
-  attackMod: 1
+  attackMod: 0
   startGunCooldown: 0
   meleeType: 0
   rangeType: 0

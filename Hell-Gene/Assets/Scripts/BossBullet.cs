@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossBullet : MonoBehaviour
 {
-    public float damage = 15f;
+    public int damage = 15;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
