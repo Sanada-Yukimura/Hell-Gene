@@ -19,13 +19,19 @@ public class RoomTemplates : MonoBehaviour {
     public GameObject staircase;
     public StairChecker staircheck;
 
+    private bool stairSpawned = false;
+
     void Update()
     {
         if (waitTime <= 0)
         {
             GameObject finalRoom = rooms[rooms.Count - 1];
             staircheck = finalRoom.transform.Find("StairSpawn").GetComponent<StairChecker>();
-            staircheck.spawnStaircase(staircase);
+            if (!stairSpawned)
+            {
+                staircheck.spawnStaircase(staircase);
+                stairSpawned = true;
+            }
         }
         else
         {
