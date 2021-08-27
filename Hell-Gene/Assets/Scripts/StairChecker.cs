@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StairChecker : MonoBehaviour
 {
@@ -26,5 +28,11 @@ public class StairChecker : MonoBehaviour
             Instantiate(staircase, transform.position, Quaternion.identity);
             spawned = true;
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other) {
+	    if (other.CompareTag("Player")) {
+		    SceneManager.LoadScene("Scenes/ChaosCardTest");
+	    }
     }
 }

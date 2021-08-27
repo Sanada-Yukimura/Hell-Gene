@@ -10,11 +10,16 @@ public class ChaosCardSelect : MonoBehaviour {
 	private int nextSceneNumber;
 
 	private bool loadSceneNow = false;
+
+	private int chaosLevel;
     // Start is called before the first frame update
     void Start()
     {
 	    card.onClick.AddListener(OnClicked);
 	    nextSceneNumber = PlayerPrefs.GetInt("nextSceneInt", 1)+1;
+	    chaosLevel = PlayerPrefs.GetInt("CurrentChaos", 0);
+	    Debug.Log("Current Chaos is: "+chaosLevel);
+	    
 //	    StartCoroutine(LoadScene());
     }
 
@@ -26,7 +31,7 @@ public class ChaosCardSelect : MonoBehaviour {
 
     void OnClicked() {
 	    if (card.name == "RetainChaos") {
-		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 0));
+		    PlayerPrefs.SetInt("CurrentChaos", chaosLevel);
 		    loadSceneNow = true;
 		    Debug.Log("Retain Chaos");
 		    if (nextSceneNumber < 5) {
@@ -40,7 +45,7 @@ public class ChaosCardSelect : MonoBehaviour {
 	    }
 
 	    else if (card.name == "RaiseChaos") {
-		    PlayerPrefs.SetInt("currChaos", PlayerPrefs.GetInt("currChaos", 0)+1);
+		    PlayerPrefs.SetInt("CurrentChaos", chaosLevel+1);
 		    loadSceneNow = true;
 		    Debug.Log("Raise Chaos");
 		    if (nextSceneNumber < 5) {
