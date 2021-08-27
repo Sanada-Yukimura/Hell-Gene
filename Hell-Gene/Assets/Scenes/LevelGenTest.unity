@@ -472,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: rangeType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7747925409631094850, guid: 638147f7d48f91142b4d39bd3860e460, type: 3}
       propertyPath: whatIsEnemy.m_Bits
