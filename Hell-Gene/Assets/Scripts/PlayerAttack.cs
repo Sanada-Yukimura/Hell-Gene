@@ -58,6 +58,8 @@ public class PlayerAttack : MonoBehaviour
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         playerMov = GetComponent<PlayerMovement>();
+
+        attackMod = PlayerPrefs.GetFloat("AttackMod", 1);
     }
 
     // Update is called once per frame

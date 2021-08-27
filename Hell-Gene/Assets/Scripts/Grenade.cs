@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     public float explodeTimer;
-    public int explodeRange;
 
     void Update()
     {
@@ -17,8 +16,9 @@ public class Grenade : MonoBehaviour
     {
         if (explodeTimer <= 0)
         {
-            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemycollider")
+            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemy")
             {
+                Debug.Log("Boom");
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
             Destroy(gameObject);
@@ -33,7 +33,7 @@ public class Grenade : MonoBehaviour
     private void OnDrawGizmos() // Debug hitboxes
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 4);
+        Gizmos.DrawWireSphere(transform.position, 1);
 
         //Gizmos.DrawWireSphere(firePoint.position, 0.5f);
     }

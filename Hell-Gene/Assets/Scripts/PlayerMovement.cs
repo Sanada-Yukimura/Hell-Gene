@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
         {
             angle += 360;
         }
-        Debug.Log(angle);
+        //Debug.Log(angle);
 
         if (angle > 45f && angle <= 135f)
         {
