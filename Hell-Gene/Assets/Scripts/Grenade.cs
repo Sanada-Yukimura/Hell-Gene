@@ -15,9 +15,9 @@ public class Grenade : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetType() == typeof(CircleCollider2D) && explodeTimer <= 0)
+        if (explodeTimer <= 0)
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemycollider")
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
@@ -33,7 +33,7 @@ public class Grenade : MonoBehaviour
     private void OnDrawGizmos() // Debug hitboxes
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 5);
+        Gizmos.DrawWireSphere(transform.position, 4);
 
         //Gizmos.DrawWireSphere(firePoint.position, 0.5f);
     }

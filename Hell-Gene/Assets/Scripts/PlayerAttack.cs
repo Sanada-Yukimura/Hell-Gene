@@ -44,7 +44,8 @@ public class PlayerAttack : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public int bulletForce; // Speed of the bullet
+    private int bulletForce = 20; // Speed of the bullet
+    private int ammo;
 
     private Vector3 mouseDir;
 
@@ -109,6 +110,9 @@ public class PlayerAttack : MonoBehaviour
                 case 2:
                     if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
                     break;
+                case 3:
+                    if (Input.GetMouseButtonDown(1)) RangedAttack(); //single shots
+                    break;
                 default:
                     if (Input.GetMouseButtonDown(1)) RangedAttack();
                     break;
@@ -137,12 +141,23 @@ public class PlayerAttack : MonoBehaviour
         switch (rangeType) {
             case 0: //default
                 startGunCooldown = 0.5f;
+                bulletForce = 20;
                 break;
             case 1:
                 startGunCooldown = 0.5f;
+                bulletForce = 25;
                 break;
             case 2:
                 startGunCooldown = 0.5f;
+                bulletForce = 10;
+                break;
+            case 3: //default
+                startGunCooldown = 0.5f;
+                bulletForce = 20;
+                break;
+            default:
+                startGunCooldown = 0.5f;
+                bulletForce = 20;
                 break;
         }
 
@@ -229,6 +244,7 @@ public class PlayerAttack : MonoBehaviour
         {
             case 0: //default
                 bulletPrefab = bulletPrefabs[0];
+                gunCooldown = 0.4f;
                 break;
             case 1: //teethigun
                 bulletPrefab = bulletPrefabs[1];
@@ -236,9 +252,15 @@ public class PlayerAttack : MonoBehaviour
                 break;
             case 2: //grenade launcher
                 bulletPrefab = bulletPrefabs[2];
+                gunCooldown = 1.5f;
+                break;
+            case 3: //decomposer
+                bulletPrefab = bulletPrefabs[3];
+                gunCooldown = 0.8f;
                 break;
             default:
                 bulletPrefab = bulletPrefabs[0];
+                gunCooldown = 0.4f;
                 break;
         }
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
