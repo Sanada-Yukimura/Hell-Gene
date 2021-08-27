@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
                 damage = 20;
                 maxHealth = 20;
                 aipath.maxSpeed = 4;
-                knockbackForce = 1000;
+                knockbackForce = 1500;
                 maxAttackTime = 5f;
                 break;
             case 5: // Commander
@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
                 hitStunTimer -= Time.deltaTime;
             }
 
-            if (!hitStun && initialAggroTrigger &&)
+            if (!hitStun && initialAggroTrigger && !isExploding)
             {
                 aipath.canSearch = true;
                 hitStunTimer = 1.0f;
@@ -156,14 +156,22 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange) //sets destination to player location if within detection range
+        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
         {
             initialAggroTrigger = true;
             aipath.destination = player.transform.position;
         }
 
         if (attackTimer >= 0 && enemyVariant != 4) {
-            attackTimer--;
+            attackTimer -= Time.deltaTime;
+        }
+
+        if (isExploding && enemyVariant == 4) {
+            Debug.Log("Exploding!");
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0) {
+                Attack(damage);
+            }
         }
 
         // Trigger attack
@@ -202,7 +210,14 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-        health -= damage;
+
+        if (enemyVariant != 5)
+        {
+            health -= damage;
+        }
+        else { // Commander takes halved damage
+            health -= (int)(damage / 2);
+        }
 
         healthBar.fillAmount = (float)health / maxHealth;
     }
@@ -230,10 +245,25 @@ public class Enemy : MonoBehaviour
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
+            attackTimer = maxAttackTime;
         }
 
-        if (enemyVariant == 4) {
+        if (enemyVariant == 4 && !isExploding) {
             isExploding = true;
+            aipath.canMove = false;
+            aipath.canSearch = false;
+        }
+
+        if (enemyVariant == 4 && isExploding && attackTimer <= 0) {
+            for (int i = 0; i < playerDamage.Length; i++) {
+                if (playerDamage[i].gameObject.CompareTag("Player"))
+                {
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+                    playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                }
+            }
+
+            Destroy(gameObject);
         }
     }
 
