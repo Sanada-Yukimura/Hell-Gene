@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 
-    public int maxHealth;
-    public int health;
+    public float maxHealth;
+    public float health;
     public int moveSpeed;
 
     public int damage;
@@ -230,9 +230,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
 
-        int damageTaken = (int) (damage * player.GetComponent<PlayerAttack>().attackMod);
+        float damageTaken = damage * player.GetComponent<PlayerAttack>().attackMod;
         Debug.Log("Attack Mod: " + player.GetComponent<PlayerAttack>().attackMod);
         Debug.Log("Damage Done: " + damageTaken);
 
@@ -241,7 +241,7 @@ public class Enemy : MonoBehaviour
             health -= damageTaken;
         }
         else { // Commander takes halved damage
-            health -= (int)(damageTaken / 2);
+            health -= (damageTaken / 2);
         }
 
         healthBar.fillAmount = (float)health / maxHealth;
