@@ -36,8 +36,13 @@ public class Enemy : MonoBehaviour
     // 5 = Commander
     // 6 = Spitter
 
+    public GameObject enemyBullet;
+    public int bulletForce;
+
     public Transform attackPos; // Position of hitbox
     public float attackRange; // Range of the hitbox
+
+    public Transform firePoint;
 
     public float attackTriggerRange; // Range of when enemy decides to attack.
     public float projectileTriggerRange; // Range of when enemy decides to shoot projectile
@@ -73,6 +78,8 @@ public class Enemy : MonoBehaviour
                 damage = 3;
                 maxHealth = 25;
                 aipath.maxSpeed = 3;
+                bulletForce = 10;
+                maxAttackTime = 15f;
                 break;
             case 2: // Orc
                 damage = 10;
@@ -100,6 +107,13 @@ public class Enemy : MonoBehaviour
                 maxHealth = 100;
                 aipath.maxSpeed = 3;
                 knockbackForce = 500;
+                maxAttackTime = 10f;
+                break;
+            case 6: // Spitter
+                damage = 10;
+                maxHealth = 45;
+                aipath.maxSpeed = 3;
+                knockbackForce = 300;
                 maxAttackTime = 10f;
                 break;
         }
@@ -197,9 +211,12 @@ public class Enemy : MonoBehaviour
             // Do projectile logic here
             if (!isMelee)
             {
-                aipath.canSearch = false;
-                aipath.canMove = false;
-                Fire(damage);
+                if (attackTimer <= 0)
+                {
+                    aipath.canSearch = false;
+                    aipath.canMove = false;
+                    Fire(damage);
+                }
             }
         }
         else //disable fleeing if player is outside range
@@ -271,6 +288,11 @@ public class Enemy : MonoBehaviour
     public void Fire(int attackDamage)
     {
         //placeholder method for enemy ranged attacks
+        GameObject bullet = Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
+        Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
+        bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+
+        attackTimer = maxAttackTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
