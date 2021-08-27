@@ -364,6 +364,7 @@ public class PlayerAttack : MonoBehaviour
                 rangeType = collision.gameObject.GetComponent<ItemProperties>().weaponType;
                 rangedDurability = collision.gameObject.GetComponent<ItemProperties>().durability;
             }
+            Destroy(collision.gameObject);
         }
     }
         private void OnDrawGizmos() // Debug hitboxes

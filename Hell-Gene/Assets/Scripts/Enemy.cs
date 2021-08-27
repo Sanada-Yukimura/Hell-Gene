@@ -316,7 +316,19 @@ public class Enemy : MonoBehaviour
 
         Debug.Log(number);
 
-        if (number <= 10) {
+        if (number <= 100) {
+            ItemTemplates it = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemTemplates>();
+            int wtRand = UnityEngine.Random.Range(0, 10);
+            if(wtRand < 5) //melee
+            {
+                int rando = UnityEngine.Random.Range(0, it.meleeWeapons.Length);
+                Instantiate(it.meleeWeapons[rando], transform.position, Quaternion.identity);
+            }
+            else
+            {
+                int rando = UnityEngine.Random.Range(0, it.rangedWeapons.Length);
+                Instantiate(it.rangedWeapons[rando], transform.position, Quaternion.identity);
+            }
             Debug.Log("10% drop rate!");    
         }
 
