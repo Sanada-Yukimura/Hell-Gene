@@ -146,10 +146,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
 
             if (hitStun)
             {
@@ -171,7 +167,12 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        if (Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
         {
             initialAggroTrigger = true;
             aipath.destination = player.transform.position;

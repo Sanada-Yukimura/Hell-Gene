@@ -398,16 +398,22 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyType: 0
   enemyVariant: 2
+  enemyBullet: {fileID: 0}
+  bulletForce: 0
   attackPos: {fileID: 352484176725907615}
   attackRange: 1.2
+  firePoint: {fileID: 0}
   attackTriggerRange: 2
   projectileTriggerRange: 0
-  detectionRange: 0
+  detectionRange: 6
   isMelee: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1
+  maxAttackTime: 0
   attackTimer: 0
+  knockbackForce: 0
+  isExploding: 0
 --- !u!50 &9123696076914571444
 Rigidbody2D:
   serializedVersion: 4
