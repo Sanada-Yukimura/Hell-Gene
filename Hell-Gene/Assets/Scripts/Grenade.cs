@@ -8,13 +8,14 @@ public class Grenade : MonoBehaviour
     public float explodeTimer;
     public int explodeRange;
     public GameObject explosionParticles;
+    float soundTimer = 0.5f;
 
     public AudioSource audio;
 
     void Update()
     {
         explodeTimer -= Time.deltaTime;
-        if (explodeTimer <= 0) {
+        if (explodeTimer < 0) {
             audio.Play();
         }
 
@@ -24,7 +25,7 @@ public class Grenade : MonoBehaviour
     {
         if (explodeTimer <= 0)
         {
-            
+            soundTimer -= Time.deltaTime;
             if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
@@ -39,8 +40,11 @@ public class Grenade : MonoBehaviour
             
             GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity); //megumin
             explosion.GetComponent<ParticleSystem>().Play();
-            
-            Destroy(gameObject);
+
+            if (soundTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
