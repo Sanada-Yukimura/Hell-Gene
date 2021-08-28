@@ -20,6 +20,7 @@
           <e p="ChaosBarController.cs" t="Include" />
           <e p="ChaosCardSelect.cs" t="Include" />
           <e p="ChaosHandler.cs" t="Include" />
+          <e p="Credits.cs" t="Include" />
           <e p="Cursor.cs" t="Include" />
           <e p="Decomposer.cs" t="Include" />
           <e p="Destroyer.cs" t="Include" />
@@ -49,6 +50,7 @@
           <e p="SwordAnimationTest.cs" t="Include" />
           <e p="SwordSlashBoss.cs" t="Include" />
           <e p="TitleVolume.cs" t="Include" />
+          <e p="VolumeSlider.cs" t="Include" />
           <e p="WeaponSwitcher.cs" t="Include" />
         </e>
         <e p="Sprites" t="Include">
