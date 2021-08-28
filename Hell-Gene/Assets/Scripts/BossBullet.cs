@@ -17,7 +17,7 @@ public class BossBullet : MonoBehaviour
             Vector3 relativePos = collision.gameObject.transform.position - transform.position;
             Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
             GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
-            GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
+            GameObject hitParticle = Instantiate(hitParticleContainer, player.transform.position, particleRotation);
             hitParticle.GetComponent<ParticleSystem>().Play();
 
             Destroy(gameObject);
