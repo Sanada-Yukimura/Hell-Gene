@@ -34,7 +34,10 @@ public class PlayerMovement : MonoBehaviour
     PlayerAttack playerAttack;
     public GameObject gameOver;
 
-    public GameObject dashParticle;
+    //particles
+    public GameObject dashParticles;
+    private GameObject dash;
+    private bool dashPlayedOnce = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -88,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
             dashTimer -= Time.deltaTime;
             if (dashTimer <= 0) {
                 isDashing = false;
+                dashPlayedOnce = false;
                 invincibleCountdown = -0.1f;
                 isInvincible = false;
                 canMove = true;
@@ -126,6 +130,24 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && (moveX != 0 || moveY !=0))
         {
             isDashing = true;
+
+            Quaternion particleRotation = Quaternion.Euler(0f, 0f, 0f);
+
+            if (moveDirection.x == 0 && moveDirection.y == -1) particleRotation = Quaternion.Euler(0f, 0f, 0f);
+            if (moveDirection.x == 1 && moveDirection.y == -1) particleRotation = Quaternion.Euler(0f, 0f, 45f);
+            if (moveDirection.x == 1 && moveDirection.y == 0) particleRotation = Quaternion.Euler(0f, 0f, 90f);
+            if (moveDirection.x == 1 && moveDirection.y == 1) particleRotation = Quaternion.Euler(0f, 0f, 135f);
+            if (moveDirection.x == 0 && moveDirection.y == 1) particleRotation = Quaternion.Euler(0f, 0f, 180f);
+            if (moveDirection.x == -1 && moveDirection.y == 1) particleRotation = Quaternion.Euler(0f, 0f, 225f);
+            if (moveDirection.x == -1 && moveDirection.y == 0) particleRotation = Quaternion.Euler(0f, 0f, 270f);
+            if (moveDirection.x == -1 && moveDirection.y == -1) particleRotation = Quaternion.Euler(0f, 0f, 315f);
+
+            dash = Instantiate(dashParticles, transform.position, particleRotation); //i am speed (particles)
+            if (!dashPlayedOnce)
+            {
+                dash.GetComponent<ParticleSystem>().Play();
+                dashPlayedOnce = true;
+            }
         }
     }
 
@@ -193,8 +215,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Dash() {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed * 10, moveDirection.y * moveSpeed * 10);
-
+        Vector2 movement = new Vector2(moveDirection.x * moveSpeed * 10, moveDirection.y * moveSpeed * 10);
+        rb.velocity = movement;
     }
 
     private void checkFacing()

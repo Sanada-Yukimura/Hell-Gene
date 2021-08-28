@@ -110,9 +110,10 @@ MonoBehaviour:
   isInvincible: 0
   invincibleCountdown: 0
   isDashing: 0
-  health: 50
+  health: 100
   canMove: 0
   gameOver: {fileID: 0}
+  dashParticles: {fileID: 5380256110777643844, guid: bb612436623c89d4fae6894c106af017, type: 3}
 --- !u!114 &7747925409631094850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   - {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
   - {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
   - {fileID: 5867336259652550117, guid: 3a80cfc574e5ec941bf1d5d4cca408d5, type: 3}
-  preLaser: {fileID: 0}
+  preLaser: {fileID: 4080600068563505406, guid: b9145c6c5841f1a40b6cfb341f132a3c, type: 3}
 --- !u!50 &7747925409631094852
 Rigidbody2D:
   serializedVersion: 4
