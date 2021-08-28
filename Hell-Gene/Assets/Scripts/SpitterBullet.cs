@@ -14,17 +14,24 @@ public class SpitterBullet : MonoBehaviour
     public LayerMask whatIsPlayer;
 
     public AudioSource audio;
-    
+
+    public GameObject bulletTrail;
+    private GameObject trail;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Vector3 bAttackEuler = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().firePoint.rotation.eulerAngles;
+        bAttackEuler = new Vector3(bAttackEuler.x, bAttackEuler.y, bAttackEuler.z + 180);
+        trail = Instantiate(bulletTrail, transform.position, Quaternion.Euler(bAttackEuler)); //blub
+        trail.GetComponent<ParticleSystem>().Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+        trail.transform.position = transform.position;
         explodeTimer -= Time.deltaTime;
 
         if (explodeTimer <= 0)
@@ -42,6 +49,14 @@ public class SpitterBullet : MonoBehaviour
                 if (playerDamage[i].gameObject.CompareTag("Player"))
                 {
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 1000);
+
+                    //particle
+                    Vector3 relativePos = playerDamage[i].gameObject.transform.position - transform.position;
+                    Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                    GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                    GameObject hitParticle = Instantiate(hitParticleContainer, playerDamage[i].gameObject.transform.position, particleRotation);
+                    hitParticle.GetComponent<ParticleSystem>().Play();
+
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
@@ -68,6 +83,14 @@ public class SpitterBullet : MonoBehaviour
                 if (playerDamage[i].gameObject.CompareTag("Player"))
                 {
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 1000);
+
+                    //particle
+                    Vector3 relativePos = playerDamage[i].gameObject.transform.position - transform.position;
+                    Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                    GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                    GameObject hitParticle = Instantiate(hitParticleContainer, playerDamage[i].gameObject.transform.position, particleRotation);
+                    hitParticle.GetComponent<ParticleSystem>().Play();
+
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
@@ -83,6 +106,7 @@ public class SpitterBullet : MonoBehaviour
             }
             if (soundTimer <= 0)
             {
+                Destroy(trail);
                 Destroy(gameObject);
             }
         }
@@ -90,6 +114,7 @@ public class SpitterBullet : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        Destroy(trail);
         Destroy(gameObject);
     }
 
