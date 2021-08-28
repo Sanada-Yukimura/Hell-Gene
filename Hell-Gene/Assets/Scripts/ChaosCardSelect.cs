@@ -16,7 +16,7 @@ public class ChaosCardSelect : MonoBehaviour {
     void Start()
     {
 	    card.onClick.AddListener(OnClicked);
-	    nextSceneNumber = PlayerPrefs.GetInt("CurrentLevelNumber", 0)+1;
+	    nextSceneNumber = PlayerPrefs.GetInt("NextSceneNumber", 0)+1;
 	    chaosLevel = PlayerPrefs.GetInt("CurrentChaos", 0);
 	    Debug.Log("Current Chaos is: "+chaosLevel);
         Debug.Log("NextSceneInt is: " + chaosLevel);
