@@ -314,9 +314,9 @@ public class Enemy : MonoBehaviour
         // Random number generator
         int number = UnityEngine.Random.Range(1,101);
 
-        Debug.Log(number);
+        //Debug.Log(number);
 
-        if (number <= 100) {
+        if (number <= 15) {
             ItemTemplates it = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemTemplates>();
             int wtRand = UnityEngine.Random.Range(0, 10);
             if(wtRand < 5) //melee
