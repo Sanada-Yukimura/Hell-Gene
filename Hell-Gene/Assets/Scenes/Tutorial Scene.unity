@@ -513,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find Weapons, Raise Hell
+  m_text: Find weapons, raise hell
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To Range Attack
+  m_text: To range attack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To Move
+  m_text: To move
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'At The End of a Level choose to retain or raise chaos.
+  m_text: 'At the end of a level choose to retain or raise chaos.
 
 
     Retaining
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To Dash
+  m_text: To dash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
@@ -3082,7 +3082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To Melee Attack
+  m_text: To melee attack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find Stairs to Progress
+  m_text: Find stairs to progress
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
   m_sharedMaterial: {fileID: -4211114254690240071, guid: cd7e443ca7a046b4f915a5dcf81320b4, type: 2}
