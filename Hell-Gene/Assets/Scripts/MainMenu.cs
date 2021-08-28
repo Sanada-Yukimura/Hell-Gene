@@ -7,7 +7,9 @@ public class MainMenu : MonoBehaviour
     public void playGame(){
 	    PlayerPrefs.SetInt("CurrentChaos", 1);
 	    PlayerPrefs.SetInt("NextSceneNumber", 1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+	    PlayerPrefs.SetInt("currentMeleeType", 0);
+	    PlayerPrefs.SetInt("currentRangedType", 0);
+	    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         
     }
 

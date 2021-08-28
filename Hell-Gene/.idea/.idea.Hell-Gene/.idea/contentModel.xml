@@ -12,6 +12,7 @@
           <e p="BomberAnimation.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
           <e p="BossBullet.cs" t="Include" />
+          <e p="BossHealthBarController.cs" t="Include" />
           <e p="Bubble.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="CameraFollow.cs" t="Include" />
@@ -34,6 +35,7 @@
           <e p="ItemTemplates.cs" t="Include" />
           <e p="Laser.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="NameGenerator.cs" t="Include" />
           <e p="OptionsMenu.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
