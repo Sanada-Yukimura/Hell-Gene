@@ -58,6 +58,12 @@ public class Enemy : MonoBehaviour
     public float attackTimer;
     public int knockbackForce;
 
+    public AudioSource enemyHit;
+    public AudioSource enemyKill;
+    float audioTimer = 0.2f;
+    bool killHasPlayed = false;
+    
+
     public bool isExploding; // For bomber
 
     // Start is called before the first frame update
@@ -169,14 +175,23 @@ public class Enemy : MonoBehaviour
         }
 
         if (health <= 0)
-        {
-            //particles
-            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            deathParticle.GetComponent<ParticleSystem>().Play();
-            //rngesus take the wheel
-            RollForRandomItemDrop();
-            Destroy(gameObject);
+        {  
+            if (!killHasPlayed) {
+                //rngesus take the wheel
+                GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+                GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+                deathParticle.GetComponent<ParticleSystem>().Play();
+                //particles
+                RollForRandomItemDrop();
+
+                killHasPlayed = true;
+                enemyKill.Play();
+            }
+
+            audioTimer -= Time.deltaTime;
+            if (audioTimer <= 0){
+                Destroy(gameObject);
+            }
         }
 
         if (Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
@@ -241,6 +256,8 @@ public class Enemy : MonoBehaviour
             GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
             GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, player.GetComponent<PlayerAttack>().firePoint.transform.rotation);
             hitParticle.GetComponent<ParticleSystem>().Play();
+
+            enemyHit.Play();
         }
 
         int damageTaken = (int) (damage * player.GetComponent<PlayerAttack>().attackMod);
