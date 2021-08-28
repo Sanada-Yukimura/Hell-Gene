@@ -29,6 +29,16 @@ public class PlayerAttack : MonoBehaviour
     public float comboCooldown;
     private float comboCountdown;
 
+    // Sounds
+    public AudioSource meleeAudio;
+    public AudioSource rangedAudio;
+    public AudioClip meleeSound;
+    public AudioClip bulletSound;
+    public AudioClip teethSound;
+    public AudioClip grenadeSound;
+    public AudioClip bubbleSound;
+    public AudioClip laserSound;
+
     private bool isMouseDown; //checks if the mouse is down
 
     Vector3 enemyTarget;
@@ -70,6 +80,10 @@ public class PlayerAttack : MonoBehaviour
 
         rangeType = PlayerPrefs.GetInt("currentRangedType", 0);
         rangedDurability = PlayerPrefs.GetInt("currentRangedDurability", 0);
+
+        meleeAudio.clip = meleeSound;
+        rangedAudio.clip = bulletSound;
+
     }
 
     // Update is called once per frame
@@ -249,26 +263,32 @@ public class PlayerAttack : MonoBehaviour
             case 0: //default
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
+                rangedAudio.clip = bulletSound;
                 break;
             case 1: //minigun
                 startGunCooldown = 0.5f;
                 bulletForce = 25;
+                rangedAudio.clip = teethSound;
                 break;
             case 2: //nade
                 startGunCooldown = 0.5f;
                 bulletForce = 10;
+                rangedAudio.clip = grenadeSound;
                 break;
             case 3: //decomposer
                 startGunCooldown = 0.5f;
                 bulletForce = 20;
+                rangedAudio.clip = bulletSound;
                 break;
             case 4: //laser
                 startGunCooldown = 0.5f;
                 bulletForce = 0;
+                rangedAudio.clip = laserSound;
                 break;
             case 5: //bubble
                 startGunCooldown = 0.5f;
                 bulletForce = 5;
+                rangedAudio.clip = bubbleSound;
                 break;
             default:
                 startGunCooldown = 0.5f;
@@ -294,6 +314,7 @@ public class PlayerAttack : MonoBehaviour
         combo += 1;
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
         isAttacking = true;
+        meleeAudio.Play();
 
         // Regular combos
         if (combo < maxCombo)
@@ -360,6 +381,8 @@ public class PlayerAttack : MonoBehaviour
         if(rangeType != 0) bulletPrefab = bulletPrefabs[rangeType];
 
         //fire bullet
+        rangedAudio.Play();
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);

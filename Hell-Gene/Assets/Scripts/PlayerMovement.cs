@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerAttack playerAttack;
     public GameObject gameOver;
 
+    public AudioSource hitAudio;
+
     //particles
     public GameObject dashParticles;
     private GameObject dash;
