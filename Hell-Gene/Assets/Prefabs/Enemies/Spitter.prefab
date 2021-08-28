@@ -260,9 +260,9 @@ GameObject:
   - component: {fileID: 8547044654258551347}
   - component: {fileID: 8547044654258551344}
   - component: {fileID: 3240662483510806789}
-  - component: {fileID: 263624259161049764}
+  - component: {fileID: 5601649096787178654}
   m_Layer: 9
-  m_Name: Square
+  m_Name: Spitter
   m_TagString: Enemycollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &263624259161049764
+--- !u!95 &5601649096787178654
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ Animator:
   m_GameObject: {fileID: 8547044654258551346}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5abad1c9110eb724c87ccb64d485c08f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e3275b80aabc4d408be4db1375235b6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
