@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6070762993598672174}
   - component: {fileID: 6768832618458032946}
   - component: {fileID: 9125557884498238508}
+  - component: {fileID: 4452232447248438116}
   m_Layer: 0
   m_Name: SpitterBullet
   m_TagString: Untagged
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.5523221, g: 0, b: 0.7830189, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 496854cb7b0b95d48a49fd0fe83e1acb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   explodeTimer: 5
-  explodeRange: 2
+  explodeRange: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1
@@ -137,7 +138,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010084629, y: -0.030253887}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -148,5 +149,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.36466885, y: 0.43526107}
   m_EdgeRadius: 0
+--- !u!95 &4452232447248438116
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458745492752984103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd1f232f2e4fbca44a3546891083fc0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
