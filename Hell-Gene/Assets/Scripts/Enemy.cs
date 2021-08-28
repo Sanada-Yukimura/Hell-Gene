@@ -60,7 +60,8 @@ public class Enemy : MonoBehaviour
 
     public AudioSource enemyHit;
     public AudioSource enemyKill;
-    float audioTimer = 0.2f;
+    public AudioSource explode;
+    float audioTimer = 0.35f;
     bool killHasPlayed = false;
     
 
@@ -334,11 +335,20 @@ public class Enemy : MonoBehaviour
 
                 }
             }
-            //GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            //GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            //deathParticle.GetComponent<ParticleSystem>().Play();
-            //RollForRandomItemDrop();
-            Destroy(gameObject);
+            if (!killHasPlayed)
+            {
+                GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+                GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+                deathParticle.GetComponent<ParticleSystem>().Play();
+                RollForRandomItemDrop();
+                explode.Play();
+                killHasPlayed = true;
+            }
+            audioTimer -= Time.deltaTime;
+            if (audioTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
