@@ -18,7 +18,7 @@ public class DurabilityBarController : MonoBehaviour {
     {
 	    if (weaponCategory == 1) {
 		    int weapon = player.GetComponent<PlayerAttack>().rangeType;
-		    Debug.Log("Ranged Weapon is:"+weapon);
+		    //Debug.Log("Ranged Weapon is:"+weapon);
 		    if (weapon == 0) {
 			    durabilityBar.fillAmount = 1;
 		    }

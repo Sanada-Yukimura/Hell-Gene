@@ -188,7 +188,6 @@ public class Enemy : MonoBehaviour
         }
 
         if (isExploding && enemyVariant == 4) {
-            Debug.Log("Exploding!");
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0) {
                 Attack(damage);
@@ -262,12 +261,11 @@ public class Enemy : MonoBehaviour
     {
         //placeholder method for enemy melee attacks
         Collider2D[] playerDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
-
         if (enemyVariant != 4 && attackTimer <= 0)
         {
             for (int i = 0; i < playerDamage.Length; i++)
             {
-                if (playerDamage[i].gameObject.CompareTag("Player"))
+                if (playerDamage[i].gameObject.tag == "Player")
                 {
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
@@ -283,11 +281,15 @@ public class Enemy : MonoBehaviour
         }
 
         if (enemyVariant == 4 && isExploding && attackTimer <= 0) {
+            
             for (int i = 0; i < playerDamage.Length; i++) {
-                if (playerDamage[i].gameObject.CompareTag("Player"))
+                
+                if (playerDamage[i].gameObject.tag == "Player")
                 {
+                    Debug.Log("Player Damage Length: " + playerDamage.Length);
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+
                 }
             }
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
