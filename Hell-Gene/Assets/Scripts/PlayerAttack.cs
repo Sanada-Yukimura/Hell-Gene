@@ -134,6 +134,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 0.4f;
+                        rangedAudio.Play();
                         RangedAttack(); //single shots
                     }
                     break;
@@ -141,6 +142,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButton(1))
                     {
                         gunCooldown = 0.1f;
+                        rangedAudio.Play();
                         RangedAttack(); //held shot
                     }
                     break;
@@ -148,6 +150,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 1.5f;
+                        rangedAudio.Play();
                         RangedAttack(); //single shots
                     }
                     break;
@@ -155,6 +158,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 0.8f;
+                        rangedAudio.Play();
                         RangedAttack(); //single shots
                     }
                     break;
@@ -162,7 +166,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 2f;
-
+                        rangedAudio.Play();
                         //particles
                         chargingLaser = true;
                         laserCharge = Instantiate(preLaser, firePoint.position, Quaternion.identity); //megumin
@@ -175,6 +179,7 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 1f;
+                        rangedAudio.Play();
                         RangedAttack(); //single shots
                     }
                     break;
@@ -381,7 +386,6 @@ public class PlayerAttack : MonoBehaviour
         if(rangeType != 0) bulletPrefab = bulletPrefabs[rangeType];
 
         //fire bullet
-        rangedAudio.Play();
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
