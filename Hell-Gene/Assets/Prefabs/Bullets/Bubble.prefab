@@ -121,6 +121,7 @@ MonoBehaviour:
   damageInterval: 0.125
   despawnTimer: 2
   damage: 2
+  bubbleParticles: {fileID: 2935533882693682836, guid: db0f670b327698f48b9ccc5eb7bc6d45, type: 3}
 --- !u!58 &-1998297498451289490
 CircleCollider2D:
   m_ObjectHideFlags: 0

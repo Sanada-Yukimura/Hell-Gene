@@ -201,6 +201,7 @@ MonoBehaviour:
   damageInterval: 1
   despawnTimer: 1
   damage: 2
+  laserParticles: {fileID: 7544534469646787077, guid: cbb14fe94f6d12a4694b0c1d8ccc5911, type: 3}
 --- !u!1 &8755606431930745344
 GameObject:
   m_ObjectHideFlags: 0

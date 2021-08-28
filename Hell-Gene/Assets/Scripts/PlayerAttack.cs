@@ -52,6 +52,10 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 mouseDir;
 
+    public GameObject preLaser; //pre-laser particle effect
+    private GameObject laserCharge;
+    private bool chargingLaser = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -144,6 +148,12 @@ public class PlayerAttack : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))
                     {
                         gunCooldown = 2f;
+
+                        //particles
+                        chargingLaser = true;
+                        laserCharge = Instantiate(preLaser, firePoint.position, Quaternion.identity); //megumin
+                        laserCharge.GetComponent<ParticleSystem>().Play();
+
                         Invoke("RangedAttack", 1f); //single shots
                     }
                     break;
@@ -164,6 +174,8 @@ public class PlayerAttack : MonoBehaviour
             gunCooldown -= Time.deltaTime;
         }
 
+        //charging laser particles
+        if(chargingLaser) laserCharge.transform.position = firePoint.transform.position;
 
         // Changing melee weapon stats based on which is equipped
         switch(meleeType){
@@ -355,6 +367,8 @@ public class PlayerAttack : MonoBehaviour
         //durability
         if (rangeType != 0) rangedDurability--;
         if (rangedDurability <= 0) rangeType = 0;
+
+        chargingLaser = false;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

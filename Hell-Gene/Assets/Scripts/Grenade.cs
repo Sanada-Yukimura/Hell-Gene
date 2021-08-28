@@ -7,6 +7,7 @@ public class Grenade : MonoBehaviour
     public int damage;
     public float explodeTimer;
     public int explodeRange;
+    public GameObject explosionParticles;
 
     void Update()
     {
@@ -17,15 +18,19 @@ public class Grenade : MonoBehaviour
     {
         if (explodeTimer <= 0)
         {
-            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemycollider")
+            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
 
-            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "BossCollider")
+            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Boss")
             {
                 collision.gameObject.GetComponent<Boss>().TakeDamage(damage);
             }
+
+            //particle
+            GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity); //megumin
+            explosion.GetComponent<ParticleSystem>().Play();
 
             Destroy(gameObject);
         }

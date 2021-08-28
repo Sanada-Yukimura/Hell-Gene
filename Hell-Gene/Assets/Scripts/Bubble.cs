@@ -8,11 +8,25 @@ public class Bubble : MonoBehaviour
     public float despawnTimer;
     public int damage;
     private bool firstProc = false;
+    public GameObject bubbleParticles;
+    private GameObject bubble;
+
+    void Start()
+    {
+        //particle
+        bubble = Instantiate(bubbleParticles, transform.position, Quaternion.identity); //blub
+        bubble.GetComponent<ParticleSystem>().Play();
+    }
 
     void Update()
     {
+        bubble.transform.position = transform.position; //move particles
         despawnTimer -= Time.deltaTime;
-        if (despawnTimer <= 0) Destroy(gameObject);
+        if (despawnTimer <= 0)
+        {
+            Destroy(bubble);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

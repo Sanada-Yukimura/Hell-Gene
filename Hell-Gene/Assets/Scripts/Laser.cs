@@ -7,6 +7,14 @@ public class Laser : MonoBehaviour
     public float damageInterval;
     public float despawnTimer;
     public int damage;
+    public GameObject laserParticles;
+
+    void Start()
+    {
+        //particle
+        GameObject laser = Instantiate(laserParticles, transform.position, transform.rotation); //ekusukalibaaa
+        laser.GetComponent<ParticleSystem>().Play();
+    }
 
     void Update()
     {

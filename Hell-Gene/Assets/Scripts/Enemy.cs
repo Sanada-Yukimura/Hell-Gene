@@ -170,6 +170,9 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+            deathParticle.GetComponent<ParticleSystem>().Play();
             RollForRandomItemDrop();
             Destroy(gameObject);
         }
