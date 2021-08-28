@@ -45,13 +45,13 @@ public class Boss : MonoBehaviour
 
     public bool isFlipped;
     public bool isAttacking;
-
+    public bool attackFrames;
     public float maxChargeTime = 0.8f; // Telegraph boss attack
     public float maxAttackTime = 0.2f; // Attack animation
     public float maxCooldownTime = 1.0f; // Pause
     public float maxAttackBuffer = 10f; // Buffer before boss is able to attack again
     private float chargeTime;
-    private float attackTime;
+    public float attackTime;
     private float cooldownTime;
     public float attackBuffer;
 
@@ -155,6 +155,7 @@ public class Boss : MonoBehaviour
             // Attack
             if (chargeTime <= 0 && attackTime >= 0) {
                 attackTime -= Time.deltaTime;
+                attackFrames = true;
                 Collider2D[] playerDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
 
                 Debug.Log(playerDamage.Length);
@@ -172,6 +173,7 @@ public class Boss : MonoBehaviour
             if (attackTime <= 0 && cooldownTime >= 0) {
                 cooldownTime -= Time.deltaTime;
                 Debug.Log("Cooling Down");
+                attackFrames = false;
             }
 
             // Return to move
