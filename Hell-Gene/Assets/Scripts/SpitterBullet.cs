@@ -15,6 +15,9 @@ public class SpitterBullet : MonoBehaviour
 
     public AudioSource audio;
 
+    public GameObject bulletTrail;
+    private GameObject trail;
+
 
     // Start is called before the first frame update
     void Start()
