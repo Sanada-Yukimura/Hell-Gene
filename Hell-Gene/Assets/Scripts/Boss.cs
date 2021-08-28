@@ -161,8 +161,8 @@ public class Boss : MonoBehaviour
                 Debug.Log(playerDamage.Length);
                 for (int i = 0; i < playerDamage.Length; i++) {
                     if (playerDamage[i].gameObject.CompareTag("Player")) {
-                        playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 500);
-                        playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                        playerDamage[i].GetComponent<PlayerMovement>().Knockback(transform.position, 500);
+                        playerDamage[i].GetComponent<PlayerMovement>().TakeDamage(damage);
                     }
                 }
 

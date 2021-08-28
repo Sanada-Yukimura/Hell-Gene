@@ -283,19 +283,19 @@ public class Enemy : MonoBehaviour
         if (enemyVariant == 4 && isExploding && attackTimer <= 0) {
             
             for (int i = 0; i < playerDamage.Length; i++) {
-                
+                Debug.Log("Player Damage Length: " + playerDamage.Length);
                 if (playerDamage[i].gameObject.tag == "Player")
                 {
-                    Debug.Log("Player Damage Length: " + playerDamage.Length);
-                    playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
-                    playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                    
+                    playerDamage[i].GetComponent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+                    playerDamage[i].GetComponent<PlayerMovement>().TakeDamage(damage);
 
                 }
             }
-            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            deathParticle.GetComponent<ParticleSystem>().Play();
-            RollForRandomItemDrop();
+            //GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+            //GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+            //deathParticle.GetComponent<ParticleSystem>().Play();
+            //RollForRandomItemDrop();
             Destroy(gameObject);
         }
     }
