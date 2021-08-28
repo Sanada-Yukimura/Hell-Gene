@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -30,10 +31,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
 
     PlayerAttack playerAttack;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+	    
         rb = GetComponent<Rigidbody2D>();
         isInvincible = false;
         canMove = true;
@@ -50,8 +52,8 @@ public class PlayerMovement : MonoBehaviour
         Inputs();
         checkFacing();
         if(health<=0){
+	        Debug.Log("I AM DEAD");
             canMove = false;
-            GameObject gameOver = GameObject.FindGameObjectWithTag("GameOverScreen");
             gameOver.SetActive(true);
         }
 
