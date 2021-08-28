@@ -236,8 +236,13 @@ MonoBehaviour:
   projectileSafety: 3
   projectileBuffer: 0
   bulletForce: 5
+  attackDetectionRange: 2
+  maxShots: 0
+  shotsTaken: 0
+  shotCooldown: 0
   player: {fileID: 0}
   aipath: {fileID: 4304452360312120778}
+  destinationSetter: {fileID: 0}
   bossBullet: {fileID: 5557583784689058069, guid: 69f89bfb0a223d041a3dea09beeb9d82, type: 3}
   childSprite: {fileID: 4304452359979452984}
   bossDown: {fileID: 21300000, guid: f49011c1252a69a4b948d69edb947cf7, type: 3}
@@ -355,7 +360,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4304452360312120775}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
