@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //facing (0=nothing,1=Up,2=Right,3=Left,4=Down)
     public int facing = 0;
     public Animator animator;
+    //public Animator swordSlash;
     public Vector2 lookDir;
     float angle;
     public Vector2 mousePos;
@@ -91,9 +92,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
         animator.SetBool("IsAttacking", playerAttack.isAttacking);
-
+        //swordSlash.SetBool("IsAttacking", playerAttack.isAttacking);
         animator.SetFloat("Combo", (float)playerAttack.combo);
         //Debug.Log((float)playerAttack.combo);
 
