@@ -170,9 +170,11 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            //particles
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
             GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
             deathParticle.GetComponent<ParticleSystem>().Play();
+            //rngesus take the wheel
             RollForRandomItemDrop();
             Destroy(gameObject);
         }
@@ -233,6 +235,13 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
+
+        if(health >= damage) //if the enemy isnt gonna die from this hit
+        {
+            GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+            GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, player.GetComponent<PlayerAttack>().firePoint.transform.rotation);
+            hitParticle.GetComponent<ParticleSystem>().Play();
+        }
 
         int damageTaken = (int) (damage * player.GetComponent<PlayerAttack>().attackMod);
         Debug.Log("Attack Mod: " + player.GetComponent<PlayerAttack>().attackMod);

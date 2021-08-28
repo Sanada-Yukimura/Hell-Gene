@@ -20,6 +20,7 @@ TagManager:
   - ItemCollider
   - GameOverScreen
   - DeathParticle
+  - HitParticle
   layers:
   - Default
   - TransparentFX
