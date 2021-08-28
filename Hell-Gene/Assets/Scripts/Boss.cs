@@ -55,6 +55,11 @@ public class Boss : MonoBehaviour
     private float cooldownTime;
     public float attackBuffer;
 
+    public AudioSource bossAttack;
+    public AudioSource bossDamage;
+    float multiHitAudioTimer = 0.1f;
+    bool attackHasPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +127,10 @@ public class Boss : MonoBehaviour
             phase = 2;
         }
 
+        if (multiHitAudioTimer <= 0) {
+            multiHitAudioTimer -= Time.deltaTime;
+        }
+
         // Flip to player based on y
         LookAtPlayer();
 
@@ -158,6 +167,11 @@ public class Boss : MonoBehaviour
                 attackFrames = true;
                 Collider2D[] playerDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
 
+                if (!attackHasPlayed) {
+                    attackHasPlayed = true;
+                    bossAttack.Play();
+                }
+
                 Debug.Log(playerDamage.Length);
                 for (int i = 0; i < playerDamage.Length; i++) {
                     if (playerDamage[i].gameObject.CompareTag("Player")) {
@@ -174,6 +188,7 @@ public class Boss : MonoBehaviour
                 cooldownTime -= Time.deltaTime;
                 Debug.Log("Cooling Down");
                 attackFrames = false;
+                attackHasPlayed = true;
             }
 
             // Return to move
@@ -284,6 +299,12 @@ public class Boss : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        if (multiHitAudioTimer <= 0)
+        {
+            bossDamage.Play();
+            multiHitAudioTimer = 0.3f;
+        }
 
         //healthBar.fillAmount = (float)health / maxHealth;
     }
