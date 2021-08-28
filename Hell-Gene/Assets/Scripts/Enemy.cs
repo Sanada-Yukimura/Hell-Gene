@@ -290,9 +290,11 @@ public class Enemy : MonoBehaviour
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
-
-            Destroy(gameObject);
+            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+            deathParticle.GetComponent<ParticleSystem>().Play();
             RollForRandomItemDrop();
+            Destroy(gameObject);
         }
     }
 
