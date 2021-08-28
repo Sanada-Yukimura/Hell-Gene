@@ -29,6 +29,8 @@
           <e p="ItemProperties.cs" t="Include" />
           <e p="ItemTemplates.cs" t="Include" />
           <e p="Laser.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="OptionsMenu.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
@@ -37,6 +39,7 @@
           <e p="RoomTemplates.cs" t="Include" />
           <e p="SpitterBullet.cs" t="Include" />
           <e p="StairChecker.cs" t="Include" />
+          <e p="TitleVolume.cs" t="Include" />
           <e p="WeaponSwitcher.cs" t="Include" />
         </e>
         <e p="Sprites" t="Include">
