@@ -277,6 +277,14 @@ public class Enemy : MonoBehaviour
                 if (playerDamage[i].gameObject.tag == "Player")
                 {
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+
+                    //particle
+                    Vector3 relativePos = player.transform.position - transform.position;
+                    Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                    GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                    GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
+                    hitParticle.GetComponent<ParticleSystem>().Play();
+
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
@@ -297,6 +305,14 @@ public class Enemy : MonoBehaviour
                 {
                     
                     playerDamage[i].GetComponent<PlayerMovement>().Knockback(transform.position, knockbackForce);
+
+                    //particle
+                    Vector3 relativePos = player.transform.position - transform.position;
+                    Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                    GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                    GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
+                    hitParticle.GetComponent<ParticleSystem>().Play();
+
                     playerDamage[i].GetComponent<PlayerMovement>().TakeDamage(damage);
 
                 }
