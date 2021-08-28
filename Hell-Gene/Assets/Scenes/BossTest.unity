@@ -3211,7 +3211,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3345,7 +3345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4304452360312120776, guid: 91d6568abeba26741a2357797f17a556, type: 3}
       propertyPath: bossLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4304452360312120776, guid: 91d6568abeba26741a2357797f17a556, type: 3}
       propertyPath: childSprite

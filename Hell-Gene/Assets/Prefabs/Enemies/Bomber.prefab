@@ -370,7 +370,7 @@ MonoBehaviour:
   isMelee: 1
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   maxAttackTime: 0
   attackTimer: 0
   knockbackForce: 0

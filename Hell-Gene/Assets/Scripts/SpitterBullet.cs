@@ -34,6 +34,9 @@ public class SpitterBullet : MonoBehaviour
                 }
             }
 
+            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+            deathParticle.GetComponent<ParticleSystem>().Play();
             Destroy(gameObject);
         }
     }
@@ -52,6 +55,9 @@ public class SpitterBullet : MonoBehaviour
                 }
             }
 
+            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+            deathParticle.GetComponent<ParticleSystem>().Play();
             Destroy(gameObject);
         }
     }

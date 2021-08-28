@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
                 collision.gameObject.GetComponentInParent<Enemy>().hitStun = true;
 
                 int enemyDamage = collision.gameObject.GetComponentInParent<Enemy>().damage;
-                TakeDamage(enemyDamage);
+                TakeDamage(enemyDamage/2);
 
                 isInvincible = true;
                 invincibleCountdown = 1.0f;
@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(knockback * 80, ForceMode2D.Impulse);
 
                 int enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
-                TakeDamage(enemyDamage);
+                TakeDamage(enemyDamage/2);
 
                 isInvincible = true;
                 invincibleCountdown = 1.0f;
