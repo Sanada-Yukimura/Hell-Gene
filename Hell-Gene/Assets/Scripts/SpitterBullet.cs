@@ -8,6 +8,8 @@ public class SpitterBullet : MonoBehaviour
     public int damage;
     public float explodeTimer;
     public int explodeRange;
+    float soundTimer = 0.4f;
+    bool audioHasPlayed = false;
 
     public LayerMask whatIsPlayer;
 
@@ -27,7 +29,13 @@ public class SpitterBullet : MonoBehaviour
 
         if (explodeTimer <= 0)
         {
-            audio.Play();
+            soundTimer -= Time.deltaTime;
+
+            if (!audioHasPlayed)
+            {
+                audio.Play();
+                audioHasPlayed = true;
+            }
             Collider2D[] playerDamage = Physics2D.OverlapCircleAll(transform.position, explodeRange, whatIsPlayer);
             for (int i = 0; i < playerDamage.Length; i++)
             {
@@ -41,8 +49,11 @@ public class SpitterBullet : MonoBehaviour
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
             GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
             deathParticle.GetComponent<ParticleSystem>().Play();
-            
-            Destroy(gameObject);
+
+            if (explodeTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -50,6 +61,7 @@ public class SpitterBullet : MonoBehaviour
     {
         if (collision.gameObject.tag != "Enemycollider" && collision.gameObject.tag != "Enemy")
         {
+            soundTimer -= Time.deltaTime;
             Collider2D[] playerDamage = Physics2D.OverlapCircleAll(transform.position, explodeRange, whatIsPlayer);
             for (int i = 0; i < playerDamage.Length; i++)
             {
@@ -63,8 +75,16 @@ public class SpitterBullet : MonoBehaviour
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
             GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
             deathParticle.GetComponent<ParticleSystem>().Play();
-            audio.Play();
-            Destroy(gameObject);
+
+            if (!audioHasPlayed)
+            {
+                audio.Play();
+                audioHasPlayed = true;
+            }
+            if (soundTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
