@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
             if (!dashPlayedOnce)
             {
                 dash.GetComponent<ParticleSystem>().Play();
+                Destroy(dash, 0.5f);
                 dashPlayedOnce = true;
             }
         }
@@ -166,6 +167,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isInvincible) {
                 rb.AddForce(knockback * 30, ForceMode2D.Impulse);
+
+                //particle
+                Vector3 relativePos = transform.position - enemy;
+                Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
+                hitParticle.GetComponent<ParticleSystem>().Play();
 
                 collision.gameObject.GetComponentInParent<Enemy>().hitStun = true;
 
@@ -186,6 +194,13 @@ public class PlayerMovement : MonoBehaviour
             if (!isInvincible)
             {
                 rb.AddForce(knockback * 80, ForceMode2D.Impulse);
+
+                //particle
+                Vector3 relativePos = transform.position - enemy;
+                Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+                GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
+                GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
+                hitParticle.GetComponent<ParticleSystem>().Play();
 
                 int enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
                 TakeDamage(enemyDamage/2);
