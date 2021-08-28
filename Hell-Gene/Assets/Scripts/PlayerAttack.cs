@@ -285,12 +285,12 @@ public class PlayerAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage);
                     enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, knockbackForce);
-                    Debug.Log("Attacking Enemy");
+                    
                 }
                 else if (enemiesToDamage[i].gameObject.CompareTag("BossCollider")) {
                     enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage(damage);
                     enemiesToDamage[i].GetComponentInParent<Boss>().Knockback(transform.position, knockbackForce);
-                    Debug.Log("Attacking Boss");
+                    
                 }
             }
             attackCooldown = startAttackCooldown;
@@ -305,12 +305,12 @@ public class PlayerAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponentInParent<Enemy>().TakeDamage(damage * 2);
                     enemiesToDamage[i].GetComponentInParent<Enemy>().Knockback(transform.position, (knockbackForce * 5));
-                    Debug.Log("Attacking Enemy");
+                    
                 }
                 else if (enemiesToDamage[i].gameObject.CompareTag("BossCollider")) {
                     enemiesToDamage[i].GetComponentInParent<Boss>().TakeDamage(damage * 2);
                     enemiesToDamage[i].GetComponentInParent<Boss>().Knockback(transform.position, (knockbackForce * 3));
-                    Debug.Log("Attacking Boss");
+                    
                 }
             }
             attackCooldown = startAttackCooldown * 4;
