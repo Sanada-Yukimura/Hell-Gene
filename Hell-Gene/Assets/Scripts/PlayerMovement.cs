@@ -83,17 +83,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (playerAttack.isAttacking)
-        {
-            animator.SetFloat("IsAttacking", 1f);
-            Debug.Log("IsAttacking");
-        }
-        else {
-            animator.SetFloat("IsAttacking", 0f);
-            Debug.Log("NotIsAttacking");
-        }
+
+        animator.SetBool("IsAttacking", playerAttack.isAttacking);
 
         animator.SetFloat("Combo", (float)playerAttack.combo);
+        Debug.Log((float)playerAttack.combo);
 
     }
 

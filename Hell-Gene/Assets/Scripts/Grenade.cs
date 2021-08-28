@@ -21,6 +21,12 @@ public class Grenade : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
+
+            if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "BossCollider")
+            {
+                collision.gameObject.GetComponent<Boss>().TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }
     }

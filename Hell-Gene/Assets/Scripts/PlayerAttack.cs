@@ -314,8 +314,7 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
             attackCooldown = startAttackCooldown * 4;
-            combo = 0;
-            comboCountdown = 0;
+            comboCountdown = comboCooldown;
 
             if (enemiesToDamage[0].gameObject.CompareTag("Enemy"))
             {
