@@ -163,6 +163,7 @@ public class Boss : MonoBehaviour
                     if (playerDamage[i].gameObject.CompareTag("Player")) {
                         playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 500);
                         playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
+                        Debug.Log("Took Damage");
                     }
                 }
 

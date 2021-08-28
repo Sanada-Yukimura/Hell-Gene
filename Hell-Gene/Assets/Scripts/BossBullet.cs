@@ -12,7 +12,6 @@ public class BossBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(damage);
-            collision.gameObject.GetComponent<PlayerMovement>().Knockback(transform.position, 150 );
             Destroy(gameObject);
         }
 
