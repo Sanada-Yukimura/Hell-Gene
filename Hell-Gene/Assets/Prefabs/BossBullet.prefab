@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  bulletTrail: {fileID: 3806817158237370276, guid: f6a7ca87f6c5300489ad1a942fc2785b, type: 3}
 --- !u!50 &6500841137590577943
 Rigidbody2D:
   serializedVersion: 4
