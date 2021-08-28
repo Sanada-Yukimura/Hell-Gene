@@ -22,6 +22,12 @@ public class Bubble : MonoBehaviour
             if (despawnTimer % damageInterval <= 0.033 || !firstProc) collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
             firstProc = true;
         }
+
+        if (collision.gameObject.tag == "BossCollider")
+        {
+            if (despawnTimer % damageInterval <= 0.033 || !firstProc) collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
+            firstProc = true;
+        }
     }
 
     private void OnBecameInvisible()

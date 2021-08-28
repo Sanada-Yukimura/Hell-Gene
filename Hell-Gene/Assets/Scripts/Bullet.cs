@@ -14,11 +14,28 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "BossCollider") {
+            collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 6) Destroy(gameObject);
+
+        if (collision.gameObject.tag == "BossCollider")
+        {
+            collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Enemycollider")
+        {
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 
     private void OnBecameInvisible()

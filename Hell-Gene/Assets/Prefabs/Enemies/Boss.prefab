@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 4304452359979452980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4304452360312120780}
   m_RootOrder: 0
@@ -102,8 +102,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.7388158, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f49011c1252a69a4b948d69edb947cf7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,18 +126,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03846097, y: -0.087620735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0935063, y: 1.6375034}
   m_EdgeRadius: 0
 --- !u!1 &4304452360242920474
 GameObject:
@@ -239,6 +239,9 @@ MonoBehaviour:
   player: {fileID: 0}
   aipath: {fileID: 4304452360312120778}
   bossBullet: {fileID: 5557583784689058069, guid: 69f89bfb0a223d041a3dea09beeb9d82, type: 3}
+  childSprite: {fileID: 4304452359979452984}
+  bossDown: {fileID: 21300000, guid: f49011c1252a69a4b948d69edb947cf7, type: 3}
+  bossUp: {fileID: 21300000, guid: 46e70daf72050be46978ab687af9fab9, type: 3}
   isFlipped: 0
   isAttacking: 0
   maxChargeTime: 0.8
@@ -374,18 +377,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03846097, y: -0.087620735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0935063, y: 1.6375034}
   m_EdgeRadius: 0
 --- !u!1 &4304452361715759311
 GameObject:

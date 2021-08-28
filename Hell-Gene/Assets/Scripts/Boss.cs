@@ -26,8 +26,14 @@ public class Boss : MonoBehaviour
 
     public Transform player;
     public Pathfinding.AIPath aipath;
+    public Pathfinding.AIDestinationSetter destinationSetter;
 
     public GameObject bossBullet;
+
+    public SpriteRenderer childSprite;
+
+    public Sprite bossDown;
+    public Sprite bossUp;
 
     Rigidbody2D rb;
 
@@ -47,6 +53,8 @@ public class Boss : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        destinationSetter.target = player;
+
         rb = GetComponent<Rigidbody2D>();
         phase = 0;
 

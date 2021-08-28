@@ -20,6 +20,11 @@ public class Laser : MonoBehaviour
         {
             collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
         }
+
+        if (collision.gameObject.tag == "BossCollider")
+        {
+            collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
+        }
     }
 
     private void OnBecameInvisible()
