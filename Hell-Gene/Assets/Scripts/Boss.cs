@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
+using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
     public int bossLevel = 0;
@@ -241,6 +241,7 @@ public class Boss : MonoBehaviour
 
         if (health <= 0) {
             health = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
 
 
