@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerAttack playerAttack;
     public GameObject gameOver;
 
+    public GameObject dashParticle;
+
     // Start is called before the first frame update
     void Start() {
 	    
@@ -192,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Dash() {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed * 10, moveDirection.y * moveSpeed * 10);
+
     }
 
     private void checkFacing()

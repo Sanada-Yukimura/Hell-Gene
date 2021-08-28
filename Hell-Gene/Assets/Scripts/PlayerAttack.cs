@@ -182,7 +182,7 @@ public class PlayerAttack : MonoBehaviour
             case 0: //default
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
-                damage = 10;
+                damage = 20;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1000;
@@ -191,7 +191,7 @@ public class PlayerAttack : MonoBehaviour
             case 1: //scythe
                 startAttackCooldown = 0.08f;
                 attackRange = 1.2f;
-                damage = 20;
+                damage = 40;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1200;
@@ -200,7 +200,7 @@ public class PlayerAttack : MonoBehaviour
             case 2: //fish
                 startAttackCooldown = 0.04f;
                 attackRange = 0.6f;
-                damage = 8;
+                damage = 12;
                 maxCombo = 3;
                 comboCooldown = 0.2f;
                 knockbackForce = 500;
@@ -209,7 +209,7 @@ public class PlayerAttack : MonoBehaviour
             case 3: //buster
                 startAttackCooldown = 1.0f;
                 attackRange = 1.0f;
-                damage = 50;
+                damage = 100;
                 maxCombo = 3;
                 comboCooldown = 0.8f;
                 knockbackForce = 2000;
@@ -218,7 +218,7 @@ public class PlayerAttack : MonoBehaviour
             case 4: //katana
                 startAttackCooldown = 0.1f;
                 attackRange = 0.9f;
-                damage = 15;
+                damage = 25;
                 maxCombo = 3;
                 comboCooldown = 0.5f;
                 knockbackForce = 1000;
@@ -227,16 +227,16 @@ public class PlayerAttack : MonoBehaviour
             case 5: //fan
                 startAttackCooldown = 0.1f;
                 attackRange = 1.5f;
-                damage = 10;
+                damage = 20;
                 maxCombo = 3;
                 comboCooldown = 0.5f;
-                knockbackForce = 2500;
+                knockbackForce = 3000;
                 lungeForce = 500;
                 break;
             default:
                 startAttackCooldown = 0.08f;
                 attackRange = 0.8f;
-                damage = 10;
+                damage = 20;
                 maxCombo = 3;
                 comboCooldown = 0.4f;
                 knockbackForce = 1000;
