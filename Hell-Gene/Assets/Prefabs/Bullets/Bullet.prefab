@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  bulletTrail: {fileID: 972051131302974701, guid: 6cb99fe381ec4f74f9a924dbe47b63e7, type: 3}
