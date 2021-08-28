@@ -24,6 +24,12 @@ public class Boss : MonoBehaviour
     public float projectileBuffer;
     public int bulletForce;
 
+    public float attackDetectionRange;
+
+    public int maxShots;
+    public int shotsTaken;
+    public float shotCooldown;
+
     public Transform player;
     public Pathfinding.AIPath aipath;
     public Pathfinding.AIDestinationSetter destinationSetter;
@@ -69,12 +75,35 @@ public class Boss : MonoBehaviour
 
         switch(bossLevel) {
             case 0:
-                maxHealth = 500;
+                maxHealth = 1000;
                 damage = 10;
+                maxShots = 1;
+                break;
+            case 1:
+                maxHealth = 1250;
+                damage = 12;
+                maxShots = 2;
+                break;
+            case 2:
+                maxHealth = 1500;
+                damage = 15;
+                maxShots = 3;
+                break;
+            case 3:
+                maxHealth = 2000;
+                damage = 18;
+                maxShots = 4;
+                break;
+            case 4:
+                maxHealth = 2500;
+                damage = 20;
+                maxShots = 5;
                 break;
         }
 
+
         health = maxHealth;
+        shotsTaken = 0;
     }
 
     // Update is called once per frame
@@ -98,6 +127,19 @@ public class Boss : MonoBehaviour
 
         if (attackBuffer >= 0) {
             attackBuffer -= Time.deltaTime;
+        }
+
+        if (phase == 0 || phase == 2)
+        {
+            Collider2D[] playerDamage = Physics2D.OverlapCircleAll(transform.position, attackDetectionRange, whatIsPlayer);
+
+            for(int i = 0; i < playerDamage.Length; i++){
+                if (!isAttacking && attackBuffer <= 0 && !playerDamage[i].gameObject.GetComponent<PlayerMovement>().isDashing)
+                {
+                    isAttacking = true;
+                    Debug.Log("Attacking!");
+                }
+            }
         }
 
         if (isAttacking) {
@@ -149,24 +191,49 @@ public class Boss : MonoBehaviour
             projectileBuffer -= Time.deltaTime;
         }
 
+        if (shotCooldown >= 0) {
+            shotCooldown -= Time.deltaTime;
+        }
+
         // Projectile detection
         if (phase == 1) {
-            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && projectileBuffer <= 0){
+            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && projectileBuffer <= 0 && shotsTaken < maxShots){
                 // Shoot projectile
-                Shoot();
-                projectileBuffer = 10f;
+                if (shotCooldown <= 0)
+                {
+                    Shoot();
+                    shotCooldown = 0.5f;
+                }
+
+                if (shotsTaken == (maxShots - 1))
+                {
+                    projectileBuffer = 10f;
+                }
                 Debug.Log("Is Shooting");
             }
+        }
+
+        if (shotsTaken == maxShots) {
+            shotsTaken = 0;
         }
 
         if (phase == 2) {
             aipath.maxSpeed = 3;
 
-            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && Vector2.Distance(player.transform.position, transform.position) >= projectileSafety && projectileBuffer <= 0)
+            if (Vector2.Distance(player.transform.position, transform.position) <= projectileRange && Vector2.Distance(player.transform.position, transform.position) >= projectileSafety && projectileBuffer <= 0 && shotsTaken < maxShots)
             {
                 // Shoot projectile 
-                Shoot();
-                projectileBuffer = 10f;
+                if (shotCooldown <= 0)
+                {
+                    Shoot();
+                    shotCooldown = 0.5f;
+                }
+
+                if (shotsTaken == (maxShots - 1))
+                {
+                    projectileBuffer = 10f;
+                }
+
             }
         }
 
@@ -208,6 +275,7 @@ public class Boss : MonoBehaviour
         GameObject bullet = Instantiate(bossBullet, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
         bulletBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        shotsTaken += 1;
     }
 
     public void TakeDamage(int damage)
@@ -237,19 +305,13 @@ public class Boss : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, projectileSafety);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, attackDetectionRange);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (phase == 0 || phase == 2)
-        {
-            if (other.CompareTag("Player"))
-            {
-                if (!isAttacking && attackBuffer <= 0 && !other.gameObject.GetComponent<PlayerMovement>().isDashing)
-                {
-                    isAttacking = true;
-                }
-            }
-        }
+
     }
 }
