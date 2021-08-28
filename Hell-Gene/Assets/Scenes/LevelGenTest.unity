@@ -10757,6 +10757,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a595b318ebf9543af4cc2aef054ccd, type: 3}
+--- !u!1001 &6668815584363365433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965381, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904517259909965382, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
+      propertyPath: m_Name
+      value: Decomposer Trail Particles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ceac563f3eff3e446b1dcb77a420ba09, type: 3}
 --- !u!1001 &7183827476829700504
 PrefabInstance:
   m_ObjectHideFlags: 0
