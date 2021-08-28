@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health);
+        
         Inputs();
         checkFacing();
         if(health<=0){
-	        Debug.Log("I AM DEAD");
+	        
             canMove = false;
             gameOver.SetActive(true);
         }

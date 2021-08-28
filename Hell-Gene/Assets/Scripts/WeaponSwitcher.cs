@@ -23,6 +23,7 @@ public class WeaponSwitcher : MonoBehaviour
 	{
 		if (weaponType == 1) {
 			int weapon = player.GetComponent<PlayerAttack>().rangeType;
+//			Debug.Log("Ranged Weapon is:"+weapon);
 			if (weapon == 0) {
 				GetComponent<Image>().sprite = basicGun;
 			}
