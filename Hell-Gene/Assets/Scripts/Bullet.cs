@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     public int damage;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -19,6 +18,8 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.layer == 6) Destroy(gameObject); //obstacle layer
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

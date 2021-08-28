@@ -66,6 +66,8 @@ public class Decomposer : MonoBehaviour
             collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.layer == 6) Destroy(gameObject); //obstacle layer
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
