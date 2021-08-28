@@ -51,10 +51,10 @@ public class SpitterBullet : MonoBehaviour
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 1000);
 
                     //particle
-                    Vector3 relativePos = collision.gameObject.transform.position - transform.position;
+                    Vector3 relativePos = playerDamage[i].gameObject.transform.position - transform.position;
                     Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
                     GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
-                    GameObject hitParticle = Instantiate(hitParticleContainer, collision.gameObject.transform.position, particleRotation);
+                    GameObject hitParticle = Instantiate(hitParticleContainer, playerDamage[i].gameObject.transform.position, particleRotation);
                     hitParticle.GetComponent<ParticleSystem>().Play();
 
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
@@ -85,10 +85,10 @@ public class SpitterBullet : MonoBehaviour
                     playerDamage[i].GetComponentInParent<PlayerMovement>().Knockback(transform.position, 1000);
 
                     //particle
-                    Vector3 relativePos = collision.gameObject.transform.position - transform.position;
+                    Vector3 relativePos = playerDamage[i].gameObject.transform.position - transform.position;
                     Quaternion particleRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
                     GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
-                    GameObject hitParticle = Instantiate(hitParticleContainer, collision.gameObject.transform.position, particleRotation);
+                    GameObject hitParticle = Instantiate(hitParticleContainer, playerDamage[i].gameObject.transform.position, particleRotation);
                     hitParticle.GetComponent<ParticleSystem>().Play();
 
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
