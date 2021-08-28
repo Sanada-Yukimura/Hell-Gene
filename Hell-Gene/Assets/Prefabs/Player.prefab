@@ -152,6 +152,7 @@ MonoBehaviour:
   - {fileID: 3105860998432896363, guid: 6bd9a9b7ce32a5543a0071f661249a22, type: 3}
   - {fileID: 4964341538499437285, guid: 01738b56b7dc5fb4a98709f388c10b6c, type: 3}
   - {fileID: 5867336259652550117, guid: 3a80cfc574e5ec941bf1d5d4cca408d5, type: 3}
+  preLaser: {fileID: 0}
 --- !u!50 &7747925409631094852
 Rigidbody2D:
   serializedVersion: 4
@@ -365,7 +366,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
