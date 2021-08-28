@@ -9,15 +9,22 @@ public class Grenade : MonoBehaviour
     public int explodeRange;
     public GameObject explosionParticles;
 
+    public AudioSource audio;
+
     void Update()
     {
         explodeTimer -= Time.deltaTime;
+        if (explodeTimer <= 0) {
+            audio.Play();
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (explodeTimer <= 0)
         {
+            
             if (collision.GetType() == typeof(CircleCollider2D) && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
@@ -29,9 +36,10 @@ public class Grenade : MonoBehaviour
             }
 
             //particle
+            
             GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity); //megumin
             explosion.GetComponent<ParticleSystem>().Play();
-
+            
             Destroy(gameObject);
         }
     }

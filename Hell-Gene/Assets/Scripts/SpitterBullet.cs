@@ -11,6 +11,9 @@ public class SpitterBullet : MonoBehaviour
 
     public LayerMask whatIsPlayer;
 
+    public AudioSource audio;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class SpitterBullet : MonoBehaviour
 
         if (explodeTimer <= 0)
         {
+            audio.Play();
             Collider2D[] playerDamage = Physics2D.OverlapCircleAll(transform.position, explodeRange, whatIsPlayer);
             for (int i = 0; i < playerDamage.Length; i++)
             {
@@ -37,6 +41,7 @@ public class SpitterBullet : MonoBehaviour
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
             GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
             deathParticle.GetComponent<ParticleSystem>().Play();
+            
             Destroy(gameObject);
         }
     }
@@ -58,6 +63,7 @@ public class SpitterBullet : MonoBehaviour
             GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
             GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
             deathParticle.GetComponent<ParticleSystem>().Play();
+            audio.Play();
             Destroy(gameObject);
         }
     }
