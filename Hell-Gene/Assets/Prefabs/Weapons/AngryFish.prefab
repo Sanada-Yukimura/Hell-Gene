@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5836625914139830690}
   - component: {fileID: 1591663645110810711}
-  - component: {fileID: 6199387423892126878}
   - component: {fileID: 713094803884675993}
+  - component: {fileID: 6199387423892126878}
   m_Layer: 0
   m_Name: AngryFish
   m_TagString: ItemCollider
@@ -84,6 +84,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &713094803884675993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133283642549258467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6040c314603ea419592ed5e924506c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 60
+  isMelee: 1
+  weaponType: 2
 --- !u!61 &6199387423892126878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,18 +125,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.17191702}
   m_EdgeRadius: 0
---- !u!114 &713094803884675993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133283642549258467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6040c314603ea419592ed5e924506c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  durability: 60
-  isMelee: 1
-  weaponType: 2

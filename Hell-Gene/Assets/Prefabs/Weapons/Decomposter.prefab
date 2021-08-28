@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2400944770748391282}
   - component: {fileID: 6747052565194129832}
-  - component: {fileID: 3045218619043246470}
   - component: {fileID: 7841667752717052661}
+  - component: {fileID: 3045218619043246470}
   m_Layer: 0
   m_Name: Decomposter
   m_TagString: ItemCollider
@@ -84,6 +84,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7841667752717052661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714324974761355427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6040c314603ea419592ed5e924506c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 20
+  isMelee: 0
+  weaponType: 3
 --- !u!61 &3045218619043246470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,18 +125,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25442037, y: 0.24595846}
   m_EdgeRadius: 0
---- !u!114 &7841667752717052661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8714324974761355427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6040c314603ea419592ed5e924506c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  durability: 20
-  isMelee: 0
-  weaponType: 3

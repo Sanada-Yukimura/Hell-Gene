@@ -32,7 +32,15 @@ public class StairChecker : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other) {
 	    if (other.CompareTag("Player")) {
-		    SceneManager.LoadScene("Scenes/ChaosCardTest");
+
+            //transfer weapon properties
+            PlayerPrefs.SetInt("currentMeleeType", other.gameObject.GetComponent<PlayerAttack>().meleeType);
+            PlayerPrefs.SetInt("currentMeleeDurability", other.gameObject.GetComponent<PlayerAttack>().meleeDurability);
+
+            PlayerPrefs.SetInt("currentRangedType", other.gameObject.GetComponent<PlayerAttack>().rangeType);
+            PlayerPrefs.SetInt("currentRangedDurability", other.gameObject.GetComponent<PlayerAttack>().rangedDurability);
+
+            SceneManager.LoadScene("Scenes/ChaosCardTest");
 	    }
     }
 }

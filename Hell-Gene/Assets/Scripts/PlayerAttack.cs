@@ -59,6 +59,13 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerMov = GetComponent<PlayerMovement>();
         attackMod = 1.1f;
+
+        //transfer weapon properties
+        meleeType = PlayerPrefs.GetInt("currentMeleeType", 0);
+        meleeDurability = PlayerPrefs.GetInt("currentMeleeDurability", 0);
+
+        rangeType = PlayerPrefs.GetInt("currentRangedType", 0);
+        rangedDurability = PlayerPrefs.GetInt("currentRangedDurability", 0);
     }
 
     // Update is called once per frame
