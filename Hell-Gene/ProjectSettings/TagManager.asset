@@ -18,6 +18,7 @@ TagManager:
   - StairSpawn
   - Items
   - ItemCollider
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX

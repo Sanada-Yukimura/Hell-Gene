@@ -46,8 +46,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(health);
         Inputs();
         checkFacing();
+        if(health<=0){
+            canMove = false;
+            GameObject gameOver = GameObject.FindGameObjectWithTag("GameOverScreen");
+            gameOver.SetActive(true);
+        }
 
         if (invincibleCountdown >= 0) {
             invincibleCountdown -= Time.deltaTime;
@@ -64,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             moveCountdown -= Time.deltaTime;
         }
 
-        if (moveCountdown <= 0) {
+        if (moveCountdown <= 0 && health> 0) {
             canMove = true;
         }
 
@@ -87,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsAttacking", playerAttack.isAttacking);
 
         animator.SetFloat("Combo", (float)playerAttack.combo);
-        Debug.Log((float)playerAttack.combo);
+        //Debug.Log((float)playerAttack.combo);
 
     }
 
@@ -209,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
         {
             angle += 360;
         }
-        Debug.Log(angle);
+        //Debug.Log(angle);
 
         if (angle > 45f && angle <= 135f)
         {
