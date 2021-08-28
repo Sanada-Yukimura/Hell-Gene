@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void playGame(){
+	    PlayerPrefs.SetInt("CurrentChaos", 1);
+	    PlayerPrefs.SetInt("NextSceneNumber", 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-        PlayerPrefs.SetInt("CurrentChaos", 0);
-        PlayerPrefs.SetInt("NextSceneNumber", 1);
+        
     }
 
     public void quitGame(){

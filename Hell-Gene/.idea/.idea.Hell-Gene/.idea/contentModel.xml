@@ -9,6 +9,7 @@
         <e p="AddRoom.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AddRoom.cs" t="Include" />
+          <e p="BomberAnimation.cs" t="Include" />
           <e p="Boss.cs" t="Include" />
           <e p="BossBullet.cs" t="Include" />
           <e p="Bubble.cs" t="Include" />
@@ -42,6 +43,7 @@
           <e p="SpitterBullet.cs" t="Include" />
           <e p="StairChecker.cs" t="Include" />
           <e p="SwordAnimationTest.cs" t="Include" />
+          <e p="SwordSlashBoss.cs" t="Include" />
           <e p="TitleVolume.cs" t="Include" />
           <e p="WeaponSwitcher.cs" t="Include" />
         </e>
