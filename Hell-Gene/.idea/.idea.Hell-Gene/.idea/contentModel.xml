@@ -14,6 +14,7 @@
           <e p="Bubble.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="CameraFollow.cs" t="Include" />
+          <e p="ChaosBarController.cs" t="Include" />
           <e p="ChaosCardSelect.cs" t="Include" />
           <e p="ChaosHandler.cs" t="Include" />
           <e p="Cursor.cs" t="Include" />
@@ -26,6 +27,7 @@
           <e p="EnemyTemplates.cs" t="Include" />
           <e p="GameoverScreen.cs" t="Include" />
           <e p="Grenade.cs" t="Include" />
+          <e p="HealthBarController.cs" t="Include" />
           <e p="ItemProperties.cs" t="Include" />
           <e p="ItemTemplates.cs" t="Include" />
           <e p="Laser.cs" t="Include" />
@@ -39,6 +41,7 @@
           <e p="RoomTemplates.cs" t="Include" />
           <e p="SpitterBullet.cs" t="Include" />
           <e p="StairChecker.cs" t="Include" />
+          <e p="SwordAnimationTest.cs" t="Include" />
           <e p="TitleVolume.cs" t="Include" />
           <e p="WeaponSwitcher.cs" t="Include" />
         </e>

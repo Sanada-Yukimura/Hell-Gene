@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing;
     private float dashTimer;
 
-    public int health = 50;
+    public int health = 100;
 
     public bool canMove = true;
     private float moveCountdown = 0.5f;
