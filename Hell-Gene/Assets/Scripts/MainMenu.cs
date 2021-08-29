@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void playGame(){
-	    if (GameObject.FindGameObjectWithTag("NormalMusic")!= null) {
-		    GameObject.FindGameObjectWithTag("NormalMusic").GetComponent<Persistence>().StopMusic();
-	    }
+	    if (GameObject.FindGameObjectWithTag("NormalMusic")) {
+		    Destroy(GameObject.FindGameObjectWithTag("NormalMusic"));
+	    } 
 	    
 	    PlayerPrefs.SetInt("CurrentChaos", 0);
 	    PlayerPrefs.SetInt("NextSceneNumber", 1);
