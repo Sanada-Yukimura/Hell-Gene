@@ -77,7 +77,7 @@ public class Boss : MonoBehaviour
         attackBuffer = maxAttackBuffer;
 
         isFlipped = false;
-        bossLevel = PlayerPrefs.GetInt("Current Chaos", 0);
+        bossLevel = PlayerPrefs.GetInt("CurrentChaos", 0);
 
         switch(bossLevel) {
             case 0:
