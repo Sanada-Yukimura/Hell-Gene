@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb5800e528ba39418347643e4f07450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.25
   timer: 73
 --- !u!1 &1739182635
 GameObject:
@@ -339,62 +339,35 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'By PSW Crew
 
-    
+
 
     Stratos Argentius
 
     Nathan Cerone
 
-    Herman
-    Chan
+    Herman Chan
 
-    Jonathan Newman
+    Jonathan
+    Newman
 
     Alen Pontejos
 
     Alyssa Umbal
 
-    Benedict
-    Wong
-
-    
-
-    
-
-    Project Lead:
-
-    Nathan Cerone
-
-    
-
-    Level
-    Design:
-
-    Nathan Cerone
-
-    Herman Chan
-
     Benedict Wong
 
-    
 
-    Enemy
-    Programming:
 
-    Jonathan Newman
 
-    
 
-    
+    Project
+    Lead:
 
-    Player Programming:
+    Nathan Cerone
 
-    Jonathan
-    Newman
 
-    
 
-    Environment Programming:
+    Level Design:
 
     Nathan Cerone
 
@@ -403,18 +376,44 @@ MonoBehaviour:
 
     Benedict Wong
 
-    
 
-    Character Design, Sprites and Backgrounds:
 
-    Stratos
-    Argentius
+    Enemy Programming:
+
+    Jonathan Newman
+
+
+
+
+
+    Player
+    Programming:
+
+    Jonathan Newman
+
+
+
+    Environment Programming:
+
+    Nathan
+    Cerone
+
+    Herman Chan
+
+    Benedict Wong
+
+
+
+    Character Design, Sprites and
+    Backgrounds:
+
+    Stratos Argentius
 
     Alyssa Umbal
 
-    
 
-    
+
+
 
     Gameplay Design:
 
@@ -425,45 +424,44 @@ MonoBehaviour:
 
     Benedict Wong
 
-    
 
-    
 
-    Music and
-    SFX:
 
-    Jonathan Newman
 
-    
+    Music and SFX:
+
+    Jonathan
+    Newman
+
+
 
     Font:
 
     Press Start 2P by Codeman38
 
-    
 
-    Motivational
-    Support:
 
-    Matthew Armstrong
+    Motivational Support:
+
+    Matthew
+    Armstrong
 
     Bazel
 
     Roygene Domingo
 
-    Herman''s
-    Redbull
+    Herman''s Redbull
 
     Phone Alarms
 
-    
 
-    The Desire to Have a Good Portfolio
 
-    
+    The
+    Desire to Have a Good Portfolio
 
-    THANKS
-    FOR PLAYING
+
+
+    THANKS FOR PLAYING
 
 '
   m_isRightToLeft: 0
@@ -554,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb5800e528ba39418347643e4f07450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.25
   timer: 73
 --- !u!1 &1885169070
 GameObject:
@@ -811,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb5800e528ba39418347643e4f07450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.25
   timer: 73
 --- !u!1 &2043291108
 GameObject:
