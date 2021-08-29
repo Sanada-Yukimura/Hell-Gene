@@ -58,9 +58,12 @@ public class Enemy : MonoBehaviour
     public float attackTimer;
     public int knockbackForce;
 
+    float multiHitAudioTimer = 0.1f;
+
     public AudioSource enemyHit;
     public AudioSource enemyKill;
-    float audioTimer = 0.2f;
+    public AudioSource explode;
+    float audioTimer = 0.35f;
     bool killHasPlayed = false;
     
 
@@ -194,6 +197,10 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if (multiHitAudioTimer >= 0) {
+            multiHitAudioTimer -= Time.deltaTime;
+        }
+
         if (Vector2.Distance(player.transform.position, transform.position) <= detectionRange && !hitStun && !isExploding) //sets destination to player location if within detection range
         {
             initialAggroTrigger = true;
@@ -257,7 +264,11 @@ public class Enemy : MonoBehaviour
             GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, player.GetComponent<PlayerAttack>().firePoint.transform.rotation);
             hitParticle.GetComponent<ParticleSystem>().Play();
 
-            enemyHit.Play();
+            if (multiHitAudioTimer <= 0) {
+                enemyHit.Play();
+                multiHitAudioTimer = 0.3f;
+            }
+            
         }
 
         int damageTaken = (int) (damage * player.GetComponent<PlayerAttack>().attackMod);
@@ -334,11 +345,20 @@ public class Enemy : MonoBehaviour
 
                 }
             }
-            //GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            //GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            //deathParticle.GetComponent<ParticleSystem>().Play();
-            //RollForRandomItemDrop();
-            Destroy(gameObject);
+            if (!killHasPlayed)
+            {
+                GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
+                GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
+                deathParticle.GetComponent<ParticleSystem>().Play();
+                RollForRandomItemDrop();
+                explode.Play();
+                killHasPlayed = true;
+            }
+            audioTimer -= Time.deltaTime;
+            if (audioTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

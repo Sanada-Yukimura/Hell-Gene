@@ -39,6 +39,8 @@ public class PlayerAttack : MonoBehaviour
     public AudioClip bubbleSound;
     public AudioClip laserSound;
 
+
+
     private bool isMouseDown; //checks if the mouse is down
 
     Vector3 enemyTarget;

@@ -6,21 +6,6 @@ public class Decomposer : MonoBehaviour
 {
     public int damage;
     public GameObject bulletPrefab;
-    public GameObject bulletTrail;
-    private GameObject trail;
-
-    void Start()
-    {
-        Vector3 pAttackEuler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().firePoint.rotation.eulerAngles;
-        pAttackEuler = new Vector3(pAttackEuler.x, pAttackEuler.y, pAttackEuler.z + 180);
-        trail = Instantiate(bulletTrail, transform.position, Quaternion.Euler(pAttackEuler)); //blub
-        trail.GetComponent<ParticleSystem>().Play();
-    }
-
-    void Update()
-    {
-        trail.transform.position = transform.position;
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -50,7 +35,6 @@ public class Decomposer : MonoBehaviour
                 lBulletBody.AddForce(-transform.right * 15, ForceMode2D.Impulse);
             }
             collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
-            Destroy(trail);
             Destroy(gameObject);
         }
 
@@ -80,13 +64,11 @@ public class Decomposer : MonoBehaviour
                 lBulletBody.AddForce(-transform.right * 15, ForceMode2D.Impulse);
             }
             collision.gameObject.GetComponentInParent<Boss>().TakeDamage(damage);
-            Destroy(trail);
             Destroy(gameObject);
         }
 
         if (collision.gameObject.layer == 6)
         {
-            Destroy(trail);
             Destroy(gameObject); //obstacle layer
         }
     }
@@ -95,7 +77,6 @@ public class Decomposer : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            Destroy(trail);
             Destroy(gameObject);
         }
     }
