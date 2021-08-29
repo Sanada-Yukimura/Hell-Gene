@@ -43,6 +43,7 @@ public class Grenade : MonoBehaviour
 
             if (soundTimer <= 0)
             {
+                Destroy(explosion);
                 Destroy(gameObject);
             }
         }

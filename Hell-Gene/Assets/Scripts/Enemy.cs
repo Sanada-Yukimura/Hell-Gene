@@ -312,6 +312,7 @@ public class Enemy : MonoBehaviour
                     GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
                     GameObject hitParticle = Instantiate(hitParticleContainer, player.transform.position, particleRotation);
                     hitParticle.GetComponent<ParticleSystem>().Play();
+                    Destroy(hitParticle, 0.5f); //delete particles
 
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
@@ -340,6 +341,7 @@ public class Enemy : MonoBehaviour
                     GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
                     GameObject hitParticle = Instantiate(hitParticleContainer, player.transform.position, particleRotation);
                     hitParticle.GetComponent<ParticleSystem>().Play();
+                    Destroy(hitParticle, 0.5f); //delete particles
 
                     playerDamage[i].GetComponent<PlayerMovement>().TakeDamage(damage);
 
@@ -350,6 +352,8 @@ public class Enemy : MonoBehaviour
                 GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
                 GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
                 deathParticle.GetComponent<ParticleSystem>().Play();
+                Destroy(deathParticle, 0.5f); //delete particles
+
                 RollForRandomItemDrop();
                 explode.Play();
                 killHasPlayed = true;

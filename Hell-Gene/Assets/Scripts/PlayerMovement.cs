@@ -174,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
                 GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
                 GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
                 hitParticle.GetComponent<ParticleSystem>().Play();
+                Destroy(hitParticle, 0.5f); //delete particles
 
                 collision.gameObject.GetComponentInParent<Enemy>().hitStun = true;
 
@@ -201,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
                 GameObject hitParticleContainer = GameObject.FindGameObjectWithTag("HitParticle");
                 GameObject hitParticle = Instantiate(hitParticleContainer, transform.position, particleRotation);
                 hitParticle.GetComponent<ParticleSystem>().Play();
+                Destroy(hitParticle, 0.5f); //delete particles
 
                 int enemyDamage = collision.gameObject.GetComponentInParent<Boss>().damage;
                 TakeDamage(enemyDamage/2);
