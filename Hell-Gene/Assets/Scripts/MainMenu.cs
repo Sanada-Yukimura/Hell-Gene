@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 		    GameObject.FindGameObjectWithTag("NormalMusic").GetComponent<Persistence>().StopMusic();
 	    }
 	    
-	    PlayerPrefs.SetInt("CurrentChaos", 1);
+	    PlayerPrefs.SetInt("CurrentChaos", 0);
 	    PlayerPrefs.SetInt("NextSceneNumber", 1);
 	    PlayerPrefs.SetInt("currentMeleeType", 0);
 	    PlayerPrefs.SetInt("currentRangedType", 0);

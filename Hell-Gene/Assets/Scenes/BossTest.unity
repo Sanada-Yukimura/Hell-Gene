@@ -814,6 +814,8 @@ MonoBehaviour:
   - James
   - Swoleon
   - Chad
+  - Lionel
+  - David
   lastNames:
   - Rookson
   - Truk
@@ -833,7 +835,9 @@ MonoBehaviour:
   - Paxton
   - McMahon
   - Tuktumuch
-  - Thundercock
+  - Laufeyson
+  - Drinkwater
+  - Odinson
   bossName: {fileID: 708612965}
 --- !u!212 &786212229 stripped
 SpriteRenderer:
