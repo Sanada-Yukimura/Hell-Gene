@@ -392,7 +392,7 @@ public class Enemy : MonoBehaviour
         if (number <= 25 + (PlayerPrefs.GetInt("CurrentChaos", 0) * 2)) {
             ItemTemplates it = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemTemplates>();
             int wtRand = UnityEngine.Random.Range(0, 10);
-            if(wtRand < 10) //melee
+            if(wtRand < 5) //melee
             {
                 int rando = UnityEngine.Random.Range(0, it.meleeWeapons.Length);
                 Instantiate(it.meleeWeapons[rando], transform.position, Quaternion.identity);
