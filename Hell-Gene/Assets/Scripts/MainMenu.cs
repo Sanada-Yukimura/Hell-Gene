@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void playGame(){
+	    if (GameObject.FindGameObjectWithTag("NormalMusic")) {
+		    GameObject.FindGameObjectWithTag("NormalMusic").GetComponent<Persistence>().StopMusic();
+	    }
+	    
 	    PlayerPrefs.SetInt("CurrentChaos", 1);
 	    PlayerPrefs.SetInt("NextSceneNumber", 1);
 	    PlayerPrefs.SetInt("currentMeleeType", 0);

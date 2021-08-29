@@ -21,6 +21,7 @@ TagManager:
   - GameOverScreen
   - DeathParticle
   - HitParticle
+  - NormalMusic
   layers:
   - Default
   - TransparentFX
