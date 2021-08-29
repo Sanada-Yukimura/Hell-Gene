@@ -128,7 +128,7 @@ public class Boss : MonoBehaviour
             phase = 2;
         }
 
-        if (multiHitAudioTimer <= 0) {
+        if (multiHitAudioTimer >= 0) {
             multiHitAudioTimer -= Time.deltaTime;
         }
 
