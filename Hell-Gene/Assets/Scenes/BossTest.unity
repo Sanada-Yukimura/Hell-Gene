@@ -3628,7 +3628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4304452360312120776, guid: 91d6568abeba26741a2357797f17a556, type: 3}
       propertyPath: bossLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4304452360312120776, guid: 91d6568abeba26741a2357797f17a556, type: 3}
       propertyPath: childSprite
