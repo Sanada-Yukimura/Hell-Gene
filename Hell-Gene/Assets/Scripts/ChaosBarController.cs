@@ -14,9 +14,12 @@ public class ChaosBarController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-	    var currentChaos = PlayerPrefs.GetInt("CurrentChaos", 1);
-	    
-	    if (currentChaos == 1) {
+	    var currentChaos = PlayerPrefs.GetInt("CurrentChaos", 0);
+
+	    if (currentChaos == 0) {
+		    chaosBar.fillAmount = 0f;
+	    }
+	    else if (currentChaos == 1) {
 		    chaosBar.fillAmount = 0.234f;
 	    }
 	    else if (currentChaos == 2) {

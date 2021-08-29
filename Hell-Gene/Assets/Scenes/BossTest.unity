@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 283964152}
   - component: {fileID: 283964151}
   - component: {fileID: 283964153}
+  - component: {fileID: 283964154}
   m_Layer: 0
   m_Name: BossRoomMusic
   m_TagString: Untagged
@@ -506,6 +507,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 283964151}
+--- !u!114 &283964154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283964150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c28c8613a22aac4c8ef86f8fbc1edd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &408484210 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 784602386400863350, guid: c4a595b318ebf9543af4cc2aef054ccd, type: 3}
@@ -801,6 +814,8 @@ MonoBehaviour:
   - James
   - Swoleon
   - Chad
+  - Lionel
+  - David
   lastNames:
   - Rookson
   - Truk
@@ -820,7 +835,9 @@ MonoBehaviour:
   - Paxton
   - McMahon
   - Tuktumuch
-  - Thundercock
+  - Laufeyson
+  - Drinkwater
+  - Odinson
   bossName: {fileID: 708612965}
 --- !u!212 &786212229 stripped
 SpriteRenderer:

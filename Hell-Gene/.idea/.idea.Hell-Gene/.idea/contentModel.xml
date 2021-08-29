@@ -39,6 +39,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="NameGenerator.cs" t="Include" />
           <e p="OptionsMenu.cs" t="Include" />
+          <e p="Persistence.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
@@ -47,6 +48,7 @@
           <e p="RoomTemplates.cs" t="Include" />
           <e p="SpitterBullet.cs" t="Include" />
           <e p="StairChecker.cs" t="Include" />
+          <e p="StopPesistence.cs" t="Include" />
           <e p="SwordAnimationTest.cs" t="Include" />
           <e p="SwordSlashBoss.cs" t="Include" />
           <e p="TitleVolume.cs" t="Include" />
