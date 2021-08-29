@@ -816,6 +816,7 @@ MonoBehaviour:
   - Chad
   - Lionel
   - David
+  - Clowner
   lastNames:
   - Rookson
   - Truk
@@ -838,6 +839,7 @@ MonoBehaviour:
   - Laufeyson
   - Drinkwater
   - Odinson
+  - Clownson
   bossName: {fileID: 708612965}
 --- !u!212 &786212229 stripped
 SpriteRenderer:
