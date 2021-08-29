@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void playGame(){
-	    if (GameObject.FindGameObjectWithTag("NormalMusic")) {
+	    if (GameObject.FindGameObjectWithTag("NormalMusic")!= null) {
 		    GameObject.FindGameObjectWithTag("NormalMusic").GetComponent<Persistence>().StopMusic();
 	    }
 	    
