@@ -335,6 +335,7 @@ MonoBehaviour:
   knockbackForce: 0
   enemyHit: {fileID: 7594498766090805720}
   enemyKill: {fileID: 6678549864526159443}
+  explode: {fileID: 0}
   isExploding: 0
 --- !u!50 &1691141420449730701
 Rigidbody2D:
@@ -355,7 +356,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &7718147819483780606
 CircleCollider2D:
