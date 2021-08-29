@@ -61,10 +61,6 @@ public class SpitterBullet : MonoBehaviour
                 }
             }
 
-            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            deathParticle.GetComponent<ParticleSystem>().Play();
-
             if (explodeTimer <= 0)
             {
                 Destroy(gameObject);
@@ -94,10 +90,6 @@ public class SpitterBullet : MonoBehaviour
                     playerDamage[i].GetComponentInParent<PlayerMovement>().TakeDamage(damage);
                 }
             }
-
-            GameObject deathParticleContainer = GameObject.FindGameObjectWithTag("DeathParticle");
-            GameObject deathParticle = Instantiate(deathParticleContainer, transform.position, Quaternion.identity);
-            deathParticle.GetComponent<ParticleSystem>().Play();
 
             if (!audioHasPlayed)
             {

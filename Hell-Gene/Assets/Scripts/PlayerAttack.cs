@@ -80,8 +80,8 @@ public class PlayerAttack : MonoBehaviour
         meleeType = PlayerPrefs.GetInt("currentMeleeType", 0);
         meleeDurability = PlayerPrefs.GetInt("currentMeleeDurability", 0);
 
-        rangeType = PlayerPrefs.GetInt("currentRangedType", 0);
-        rangedDurability = PlayerPrefs.GetInt("currentRangedDurability", 0);
+        rangeType = 3;//PlayerPrefs.GetInt("currentRangedType", 0);
+        rangedDurability = 5;//PlayerPrefs.GetInt("currentRangedDurability", 0);
 
         meleeAudio.clip = meleeSound;
         rangedAudio.clip = bulletSound;

@@ -145,4 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  bulletPrefab: {fileID: 3105860998432896363}
+  bulletPrefab: {fileID: 1511961198252282586, guid: 60aaf5652b6fc7943b872ae749a09ea6, type: 3}
+  bulletTrail: {fileID: 5644396845633642548, guid: c6de4c3f87409d2438bc59116e03f7be, type: 3}
