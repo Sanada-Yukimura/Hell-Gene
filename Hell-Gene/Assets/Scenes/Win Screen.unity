@@ -213,6 +213,160 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   timer: 73
+--- !u!1 &1369897018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369897022}
+  - component: {fileID: 1369897021}
+  - component: {fileID: 1369897020}
+  - component: {fileID: 1369897019}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: NormalMusic
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1369897019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369897018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be75122e7992d6409440c334dced3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1369897020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369897018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e0fc9edc0dd794d816a786ebbd6c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1369897021}
+--- !u!82 &1369897021
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369897018}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1dac732a1d20ca841b9536d802f291fe, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1369897022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369897018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.4953213, y: -2.3887, z: -25.088482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739182635
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,62 +493,35 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'By PSW Crew
 
-    
+
 
     Stratos Argentius
 
     Nathan Cerone
 
-    Herman
-    Chan
+    Herman Chan
 
-    Jonathan Newman
+    Jonathan
+    Newman
 
     Alen Pontejos
 
     Alyssa Umbal
 
-    Benedict
-    Wong
-
-    
-
-    
-
-    Project Lead:
-
-    Nathan Cerone
-
-    
-
-    Level
-    Design:
-
-    Nathan Cerone
-
-    Herman Chan
-
     Benedict Wong
 
-    
 
-    Enemy
-    Programming:
 
-    Jonathan Newman
 
-    
 
-    
+    Project
+    Lead:
 
-    Player Programming:
+    Nathan Cerone
 
-    Jonathan
-    Newman
 
-    
 
-    Environment Programming:
+    Level Design:
 
     Nathan Cerone
 
@@ -403,18 +530,44 @@ MonoBehaviour:
 
     Benedict Wong
 
-    
 
-    Character Design, Sprites and Backgrounds:
 
-    Stratos
-    Argentius
+    Enemy Programming:
+
+    Jonathan Newman
+
+
+
+
+
+    Player
+    Programming:
+
+    Jonathan Newman
+
+
+
+    Environment Programming:
+
+    Nathan
+    Cerone
+
+    Herman Chan
+
+    Benedict Wong
+
+
+
+    Character Design, Sprites and
+    Backgrounds:
+
+    Stratos Argentius
 
     Alyssa Umbal
 
-    
 
-    
+
+
 
     Gameplay Design:
 
@@ -425,45 +578,44 @@ MonoBehaviour:
 
     Benedict Wong
 
-    
 
-    
 
-    Music and
-    SFX:
 
-    Jonathan Newman
 
-    
+    Music and SFX:
+
+    Jonathan
+    Newman
+
+
 
     Font:
 
     Press Start 2P by Codeman38
 
-    
 
-    Motivational
-    Support:
 
-    Matthew Armstrong
+    Motivational Support:
+
+    Matthew
+    Armstrong
 
     Bazel
 
     Roygene Domingo
 
-    Herman''s
-    Redbull
+    Herman''s Redbull
 
     Phone Alarms
 
-    
 
-    The Desire to Have a Good Portfolio
 
-    
+    The
+    Desire to Have a Good Portfolio
 
-    THANKS
-    FOR PLAYING
+
+
+    THANKS FOR PLAYING
 
 '
   m_isRightToLeft: 0
